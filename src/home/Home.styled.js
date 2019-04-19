@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import IMG from '../../download.jpeg';
+import IMG from '../common/images/download.jpeg';
 
 const Wrapper = styled.div`
   position: absolute;
