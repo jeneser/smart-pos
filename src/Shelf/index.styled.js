@@ -29,15 +29,19 @@ const Card = styled.div`
 const Image = styled.img`
   width: 1.648rem;
   height: 1.248rem;
-  background-image: url(${IMG});
+  background-image: url(${(props) => (props.source ? props.source : '')});
   background-size: 1.648rem 1.248rem;
   background-repeat: no-repeat;
 `;
 
 const Text = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0 0.05rem;
-  line-height: 0.4rem;
+  height: 0.4rem;
   font-size: 0.2rem;
+  text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;

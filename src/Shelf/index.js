@@ -1,101 +1,50 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import get from 'lodash.get';
 import * as styled from './index.styled';
 
+import { mockProducts, mockDiscounts } from './mock';
+
 function Shelf({ match }) {
   const shelfType = get(match, 'params.shelf');
-  console.log(shelfType);
+
+  const productsData = mockProducts;
+  const discountsData = mockDiscounts;
 
   return (
     <styled.Shelf>
+      {/* 推荐商品 */}
+      {productsData.map((products, index) => {
+        return (
+          <styled.Row key={index}>
+            {products.map((item, index) => {
+              return (
+                <styled.Card key={item.itemId + String(index)}>
+                  {item && (
+                    <Fragment>
+                      <styled.Image source={item.itemPic} />
+                      <styled.Text>{item.itemTitle}</styled.Text>
+                    </Fragment>
+                  )}
+                </styled.Card>
+              );
+            })}
+          </styled.Row>
+        );
+      })}
+      {/* 店铺折扣 */}
       <styled.Row>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-      </styled.Row>
-      <styled.Row>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-      </styled.Row>
-      <styled.Row>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-      </styled.Row>
-      <styled.Row>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card>
-          <styled.Image />
-          <styled.Text>粉色连衣裙</styled.Text>
-        </styled.Card>
-        <styled.Card />
-        <styled.Card />
-      </styled.Row>
-      <styled.Row>
-        <styled.Card />
-        <styled.Card />
-        <styled.Card>欢迎</styled.Card>
-        <styled.Card>礼品卡</styled.Card>
-        <styled.Card>折扣</styled.Card>
+        {discountsData.map((item, index) => {
+          return (
+            <styled.Card key={index}>
+              {item && (
+                <Fragment>
+                  <styled.Image source={item.picture} />
+                  <styled.Text>{item.title}</styled.Text>
+                </Fragment>
+              )}
+            </styled.Card>
+          );
+        })}
       </styled.Row>
     </styled.Shelf>
   );
