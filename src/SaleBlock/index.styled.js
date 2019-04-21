@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import Icon from '../common/components/Icon';
 
 const SaleBlock = styled.div`
   position: relative;
@@ -14,38 +15,36 @@ const Head = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 0.2rem;
-  line-height: 0.8rem;
-  font-size: 0.26rem;
+  height: 0.8rem;
   border-bottom: 0.01rem solid #999;
 `;
 
-const Foot = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  line-height: 0.8rem;
+const Title = styled.div`
   font-size: 0.26rem;
-  text-align: center;
-  color: #fff;
-  background-color: #2997cc;
 `;
 
 const List = styled.div`
-  padding: 0.2rem 0.2rem 0 0.2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  height: calc(100% - 1.6rem);
+  padding: 0 0.2rem 0 0.2rem;
+  overflow: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ListItem = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   font-size: 0.2rem;
   color: #000;
   padding: 0.2rem 0;
+  margin-bottom: 0.1rem;
 
   ${(props) =>
     props.borderTop
@@ -54,10 +53,88 @@ const ListItem = styled.div`
           border-top: 1px solid #ccc;
         `
       : ''}
+
+  :active {
+    background-color: #f2f2f2;
+  }
 `;
 
-const ProductDesc = styled.div``;
+const Image = styled.img`
+  max-width: 0.64rem;
+  width: 100%;
+  height: 0.64rem;
+  margin-right: 0.2rem;
+  background-color: #eee;
+`;
 
-const ProductPrice = styled.div``;
+const ItemInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 0.64rem;
+`;
 
-export { SaleBlock, Head, Foot, List, ListItem, ProductDesc, ProductPrice };
+const ItemTitle = styled.div`
+  width: 62.5%;
+  font-size: 0.22rem;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+const ItemDesc = styled.div`
+  display: flex;
+  font-size: 0.2rem;
+  color: #666;
+`;
+
+const ItemPrice = styled.div`
+  position: absolute;
+  right: 0;
+  bottom: 0.2rem;
+  font-size: 0.22rem;
+  color: #666;
+`;
+
+const IconDelete = styled(Icon)`
+  position: absolute;
+  right: 0;
+  top: 0.2rem;
+`;
+
+const Foot = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0.8rem;
+  font-size: 0.26rem;
+  text-align: center;
+  color: #fff;
+  background-color: #2997cc;
+
+  :active {
+    opacity: 0.9;
+  }
+`;
+
+export {
+  SaleBlock,
+  Head,
+  Title,
+  List,
+  ListItem,
+  ItemInfo,
+  ItemTitle,
+  ItemDesc,
+  ItemPrice,
+  IconDelete,
+  Image,
+  Foot
+};

@@ -119,20 +119,74 @@ export const mockDiscounts = [
   '',
   {
     discountId: '354645432565',
-    picture: require('../common/images/discount.png'),
+    picture: require('../images/discount.png'),
     amount: '20.00',
     title: '新客折'
   },
   {
     discountId: '354645654',
-    picture: require('../common/images/gift.png'),
+    picture: require('../images/gift.png'),
     amount: '20.00',
     title: '新品折扣'
   },
   {
     discountId: '35464565',
-    picture: require('../common/images/vip.png'),
+    picture: require('../images/vip.png'),
     amount: '20.00',
     title: '会员专享折'
+  }
+];
+
+export const mockOrderList = [
+  {
+    itemId: '12344565',
+    itemPic:
+      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
+    itemTitle: '棉麻外套夏季棉麻外套夏季',
+    itemPrice: '200.00',
+    itemDesc: '红 165/96A'
+  },
+  {
+    itemId: '12345465',
+    itemPic:
+      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
+    itemTitle: '棉麻外套夏季棉麻外套夏季',
+    itemPrice: '200.00',
+    itemDesc: '红 165/96A'
+  },
+  {
+    itemId: '123455454',
+    itemPic:
+      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
+    itemTitle: '棉麻外套夏季v棉麻外套夏季',
+    itemPrice: '200.00',
+    itemDesc: '红 165/96A'
+  },
+  {
+    itemId: '15452345',
+    itemPic:
+      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
+    itemTitle: '棉麻外套夏季v棉麻外套夏季',
+    itemPrice: '200.00',
+    itemDesc: '红 165/96A'
+  }
+];
+
+export const mockDiscountList = [
+  {
+    discountId: '354645432565',
+    picture: require('../images/discount.png'),
+    amount: '20.00',
+    discountRate: 0.9,
+    title: '新客折',
+    discountDesc: '新客打九折'
+  },
+  {
+    discountId: '354645432565',
+    picture: require('../images/discount.png'),
+    amount: '20.00',
+    discountRate: 0.9,
+    title: '新客折',
+    discountDesc: '新客打九折'
   }
 ];

@@ -17,19 +17,19 @@ function NavBar() {
       <styled.NavItem to="/dashboard" activeStyle={activeStyle} width="10">
         <Icon name="icon_menu_white" width="0.32" height="0.32" />
       </styled.NavItem>
-      <styled.NavItem to="/home/shelfOne" activeStyle={activeStyle}>
+      <styled.NavItem to="/home/shelf/one" activeStyle={activeStyle}>
         服饰上新
       </styled.NavItem>
-      <styled.NavItem to="/home/shelfTwo" activeStyle={activeStyle}>
+      <styled.NavItem to="/home/shelf/two" activeStyle={activeStyle}>
         热销鞋帽
       </styled.NavItem>
-      <styled.NavItem to="/home/shelfThree" activeStyle={activeStyle}>
+      <styled.NavItem to="/home/shelf/three" activeStyle={activeStyle}>
         配饰挂件
       </styled.NavItem>
       <styled.NavItem to="/home/products" activeStyle={activeStyle}>
         <Icon name="icon_query_list_white" width="0.30" height="0.30" />
       </styled.NavItem>
-      <styled.NavItem to="/calculator" activeStyle={activeStyle}>
+      <styled.NavItem to="/home/calculator" activeStyle={activeStyle}>
         <Icon name="icon_calculator_white" width="0.32" height="0.32" />
       </styled.NavItem>
     </styled.NavBar>

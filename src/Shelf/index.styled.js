@@ -24,6 +24,10 @@ const Card = styled.div`
   font-size: 0.2rem;
   background-color: #ededed;
   border: solid 1px #ccc;
+
+  :active {
+    opacity: 0.8;
+  }
 `;
 
 const Image = styled.img`

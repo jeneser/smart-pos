@@ -1,37 +1,62 @@
 import React from 'react';
+import Icon from '../common/components/Icon';
 import * as styled from './index.styled';
 
+import { mockOrderList, mockDiscountList } from '../common/mock/products';
+
 function SaleBlock() {
+  const saleList = mockOrderList;
+  const discountList = mockDiscountList;
+
   return (
     <styled.SaleBlock>
-      <styled.Head>当前订单</styled.Head>
+      {/* head */}
+      <styled.Head>
+        <styled.Title>当前订单</styled.Title>
+        <Icon name="icon_more_c_black" width="0.32" height="0.32" />
+      </styled.Head>
+      {/* List */}
       <styled.List>
-        <styled.ListItem>
-          <styled.ProductDesc>粉色连衣裙</styled.ProductDesc>
-          <styled.ProductPrice>$288.00</styled.ProductPrice>
-        </styled.ListItem>
-        <styled.ListItem>
-          <styled.ProductDesc>粉色连衣裙</styled.ProductDesc>
-          <styled.ProductPrice>$288.00</styled.ProductPrice>
-        </styled.ListItem>
-        <styled.ListItem>
-          <styled.ProductDesc>粉色连衣裙</styled.ProductDesc>
-          <styled.ProductPrice>$288.00</styled.ProductPrice>
-        </styled.ListItem>
-        <styled.ListItem>
-          <styled.ProductDesc>粉色连衣裙</styled.ProductDesc>
-          <styled.ProductPrice>$288.00</styled.ProductPrice>
-        </styled.ListItem>
+        {saleList.map((item) => {
+          return (
+            <styled.ListItem key={item.itemId}>
+              <styled.Image src={item.itemPic} />
 
-        <styled.ListItem borderTop>
-          <styled.ProductDesc>优惠折扣</styled.ProductDesc>
-          <styled.ProductPrice>-$288.00</styled.ProductPrice>
-        </styled.ListItem>
-        <styled.ListItem>
-          <styled.ProductDesc>配送费用</styled.ProductDesc>
-          <styled.ProductPrice>$28.00</styled.ProductPrice>
-        </styled.ListItem>
+              <styled.ItemInfo>
+                <styled.ItemTitle>{item.itemTitle}</styled.ItemTitle>
+                <styled.ItemDesc>{item.itemDesc}</styled.ItemDesc>
+              </styled.ItemInfo>
+
+              <styled.ItemPrice>￥{item.itemPrice}</styled.ItemPrice>
+              <styled.IconDelete
+                name="icon_error_black"
+                width="0.2"
+                height="0.2"
+              />
+            </styled.ListItem>
+          );
+        })}
+        {
+          discountList.map((item, index) => {
+            return <styled.ListItem borderTop={index === 0} key={item.discountId}>
+            <styled.Image src={item.picture} />
+
+            <styled.ItemInfo>
+              <styled.ItemTitle>{item.title}</styled.ItemTitle>
+              <styled.ItemDesc>{item.discountDesc}</styled.ItemDesc>
+            </styled.ItemInfo>
+
+            <styled.ItemPrice>{item.discountRate || item.amount}</styled.ItemPrice>
+            <styled.IconDelete
+              name="icon_error_black"
+              width="0.2"
+              height="0.2"
+            />
+          </styled.ListItem>
+          })
+        }
       </styled.List>
+      {/* foot */}
       <styled.Foot>结算 ￥198.00</styled.Foot>
     </styled.SaleBlock>
   );

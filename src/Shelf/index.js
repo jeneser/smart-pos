@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import get from 'lodash.get';
 import * as styled from './index.styled';
 
-import { mockProducts, mockDiscounts } from './mock';
+import { mockProducts, mockDiscounts } from '../common/mock/products';
 
 function Shelf({ match }) {
   const shelfType = get(match, 'params.shelf');
