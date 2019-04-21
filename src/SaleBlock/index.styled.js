@@ -5,8 +5,15 @@ const SaleBlock = styled.div`
   position: relative;
   width: 33.333334%;
   height: calc(100vh - 0.8rem);
+  padding: 0.2rem 0;
+`;
+
+const Wrapper = styled.div`
+  position: relative;
+  height: 100%;
   background-color: #fff;
-  border-left: 0.02rem solid #ccc;
+  border: 0.02rem solid #ccc;
+  border-bottom: none;
   box-shadow: -0.04px 0 0.1px rgba(255, 255, 255, 0.1);
 `;
 
@@ -126,6 +133,7 @@ const Foot = styled.div`
 
 export {
   SaleBlock,
+  Wrapper,
   Head,
   Title,
   List,

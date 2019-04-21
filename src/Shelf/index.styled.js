@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import IMG from '../common/images/download.jpeg';
 
 const Shelf = styled.div`
   width: 66.666666%;
