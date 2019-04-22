@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import NavBar from '../NavBar';
 import SaleBlock from '../SaleBlock';
 import Products from '../Products';
 import Shelf from '../Shelf';
@@ -23,9 +22,6 @@ const Home = ({ match }) => {
 
       {/* 订单 */}
       <SaleBlock />
-
-      {/* 底部导航栏 */}
-      <NavBar />
     </styled.Wrapper>
   );
 };
