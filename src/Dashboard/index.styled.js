@@ -7,7 +7,8 @@ const DashboardWrapper = styled.div`
 `;
 
 const Main = styled.div`
-  flex: 1;
+  width: 66.666666%;
+  height: calc(100vh - 0.8rem);
 `;
 
 export { DashboardWrapper, Main };

@@ -47,7 +47,7 @@ const UserDesc = styled.div`
 const RoleTag = styled.div`
   margin-right: 0.12rem;
   padding: 0.01rem 0.04rem;
-  font-size: 0.2rem;
+  font-size: 0.18rem;
   color: #999;
   border: 0.01rem solid #ccc;
 `;

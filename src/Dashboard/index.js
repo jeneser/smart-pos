@@ -14,8 +14,9 @@ function Dashboard({ match }) {
         {/* Sidebar */}
         <Sidebar />
         {/* Main */}
-        <Route path={`${match.url}/login`} component={Login} />
-        <styled.Main />
+        <styled.Main>
+          <Route path={`${match.url}/login`} component={Login} />
+        </styled.Main>
       </Router>
     </styled.DashboardWrapper>
   );
