@@ -4,6 +4,7 @@ import Icon from '../common/components/Icon';
 
 import Sidebar from '../Sidebar';
 import Login from '../Login';
+import Hangup from '../Hangup';
 
 import * as styled from './index.styled';
 
@@ -16,6 +17,7 @@ function Dashboard({ match }) {
         {/* Main */}
         <styled.Main>
           <Route path={`${match.url}/login`} component={Login} />
+          <Route path={`${match.url}/hangup`} component={Hangup} />
         </styled.Main>
       </Router>
     </styled.DashboardWrapper>

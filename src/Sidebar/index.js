@@ -9,7 +9,7 @@ const navConfig = [
     iconName: 'icon_analysis_c_black'
   },
   {
-    path: 'hangupBill',
+    path: 'hangup',
     name: '挂起的账单',
     iconName: 'icon_waitinvoice_black'
   },
@@ -59,6 +59,7 @@ function Sidebar() {
           <styled.NavItem
             to={`${baseUrl}/${navItem.path}`}
             activeStyle={activeStyle}
+            key={navItem.name}
           >
             <Icon name={navItem.iconName} width="0.3" height="0.3" />
             <styled.NavText>{navItem.name}</styled.NavText>

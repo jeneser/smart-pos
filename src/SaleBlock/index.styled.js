@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components';
 import Icon from '../common/components/Icon';
 
 const SaleBlock = styled.div`
-  position: relative;
+  /* position: relative;
   width: 33.333334%;
   height: calc(100vh - 0.8rem);
-  padding: 0.2rem 0;
+  padding: 0.2rem 0; */
 `;
 
 const Wrapper = styled.div`
@@ -118,17 +118,41 @@ const Foot = styled.div`
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 0.8rem;
   font-size: 0.26rem;
-  text-align: center;
-  color: #fff;
-  background-color: #2997cc;
+  /* text-align: center; */
+  /* color: #fff; */
+  /* background-color: #2997cc; */
+
+  /* :active {
+    opacity: 0.9;
+  } */
+`;
+
+const Button = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  border: 0.01rem solid #ccc;
 
   :active {
-    opacity: 0.9;
+    background-color: ${(props) => (props.primary ? '' : '#f2f2f2')};
   }
+
+  ${(props) =>
+    props.primary &&
+    css`
+      color: #fff;
+      background-color: #2997cc;
+
+      :active {
+        opacity: 0.9;
+      }
+    `}
 `;
 
 export {
@@ -144,5 +168,6 @@ export {
   ItemPrice,
   IconDelete,
   Image,
-  Foot
+  Foot,
+  Button
 };

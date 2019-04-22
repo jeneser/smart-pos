@@ -60,7 +60,14 @@ function SaleBlock() {
           })}
         </styled.List>
         {/* foot */}
-        <styled.Foot>结算 ￥198.00</styled.Foot>
+        <styled.Foot>
+            <styled.Button>
+              挂起
+            </styled.Button>
+            <styled.Button primary>
+              结算
+            </styled.Button>
+        </styled.Foot>
       </styled.Wrapper>
     </styled.SaleBlock>
   );
