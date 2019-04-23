@@ -5,8 +5,24 @@ import Icon from '../common/components/Icon';
 import Sidebar from '../Sidebar';
 import Login from '../Login';
 import Hangup from '../Hangup';
+import Analysis from '../Analysis';
 
 import * as styled from './index.styled';
+
+const routeConfig = [
+  {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'hangup',
+    component: Hangup
+  },
+  {
+    path: 'analysis',
+    component: Analysis
+  }
+];
 
 function Dashboard({ match }) {
   return (
@@ -16,8 +32,14 @@ function Dashboard({ match }) {
         <Sidebar />
         {/* Main */}
         <styled.Main>
-          <Route path={`${match.url}/login`} component={Login} />
-          <Route path={`${match.url}/hangup`} component={Hangup} />
+          {routeConfig.map((route) => {
+            return (
+              <Route
+                path={`${match.url}/${route.path}`}
+                component={route.component}
+              />
+            );
+          })}
         </styled.Main>
       </Router>
     </styled.DashboardWrapper>

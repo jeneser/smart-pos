@@ -5,9 +5,6 @@ import * as styled from './index.styled';
 function Hangup() {
   return (
     <styled.Wrapper>
-      <styled.Headline>
-        未完成的订单
-      </styled.Headline>
       <styled.Row>
         <styled.EnhanceSaleBlock />
         <styled.EnhanceSaleBlock />

@@ -4,20 +4,11 @@ import SaleBlock from '../SaleBlock';
 const Wrapper = styled.div`
   height: calc(100vh - 0.8rem);
   overflow-y: scroll;
+  padding-top: 0.4rem;
 
   ::-webkit-scrollbar {
     display: none;
   }
-`;
-
-const Headline = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 1.2rem;
-  padding: 0 0.34rem;
-  color: #666;
-  font-size: 0.30rem;
 `;
 
 const Row = styled.div`
@@ -35,7 +26,6 @@ const EnhanceSaleBlock = styled(SaleBlock)`
 
 export {
   Wrapper,
-  Headline,
   Row,
   EnhanceSaleBlock
 }
