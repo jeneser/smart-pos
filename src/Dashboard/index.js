@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar';
 import Login from '../Login';
 import Hangup from '../Hangup';
 import Analysis from '../Analysis';
+import Bills from '../Bills';
 
 import * as styled from './index.styled';
 
@@ -21,6 +22,10 @@ const routeConfig = [
   {
     path: 'analysis',
     component: Analysis
+  },
+  {
+    path: 'bills',
+    component: Bills
   }
 ];
 

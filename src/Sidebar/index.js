@@ -14,7 +14,7 @@ const navConfig = [
     iconName: 'icon_waitinvoice_black'
   },
   {
-    path: 'historyBill',
+    path: 'bills',
     name: '历史账单',
     iconName: 'icon_historyorder_black'
   },
