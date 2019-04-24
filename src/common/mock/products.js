@@ -155,7 +155,7 @@ export const mockOrderList = [
     itemDesc: '红 165/96A'
   },
   {
-    itemId: '123455454',
+    itemId: '12345545676564',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
     itemTitle: '棉麻外套夏季v棉麻外套夏季',
@@ -171,7 +171,7 @@ export const mockOrderList = [
     itemDesc: '红 165/96A'
   },
   {
-    itemId: '123455454',
+    itemId: '1234544234355454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
     itemTitle: '棉麻外套夏季v棉麻外套夏季',
@@ -179,7 +179,7 @@ export const mockOrderList = [
     itemDesc: '红 165/96A'
   },
   {
-    itemId: '123455454',
+    itemId: '123452345777455454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
     itemTitle: '棉麻外套夏季v棉麻外套夏季',
@@ -187,7 +187,7 @@ export const mockOrderList = [
     itemDesc: '红 165/96A'
   },
   {
-    itemId: '123455454',
+    itemId: '1234545433355454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
     itemTitle: '棉麻外套夏季v棉麻外套夏季',
@@ -195,7 +195,7 @@ export const mockOrderList = [
     itemDesc: '红 165/96A'
   },
   {
-    itemId: '123455454',
+    itemId: '12340987955454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
     itemTitle: '棉麻外套夏季v棉麻外套夏季',
@@ -206,7 +206,7 @@ export const mockOrderList = [
 
 export const mockDiscountList = [
   {
-    discountId: '354645432565',
+    discountId: '3546475432565',
     picture: require('../images/discount.png'),
     amount: '20.00',
     discountRate: 0.9,
@@ -214,7 +214,7 @@ export const mockDiscountList = [
     discountDesc: '新客打九折'
   },
   {
-    discountId: '354645432565',
+    discountId: '3546454326565',
     picture: require('../images/discount.png'),
     amount: '20.00',
     discountRate: 0.9,

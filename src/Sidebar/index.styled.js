@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = styled.div`
-  width: 33.333334%;
-  border-right: 0.02rem solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 42%;
+  height: 100vh;
+  background-color: #3d454c;
 `;
 
 const UserBlock = styled(NavLink)`
@@ -11,12 +15,12 @@ const UserBlock = styled(NavLink)`
   align-items: center;
   height: 1.2rem;
   padding: 0 0.24rem;
-  color: #000;
-  border-bottom: 0.01rem solid #ccc;
+  color: #fff;
+  /* border-bottom: 0.01rem solid #ccc; */
   text-decoration: none;
 
   :active {
-    background-color: #f2f2f2;
+    background-color: #2a2f33;
   }
 `;
 
@@ -56,20 +60,16 @@ const NavItem = styled(NavLink)`
   display: flex;
   align-items: center;
   height: 1rem;
-  padding: 0 0.24rem;
-  color: #000;
-  border-bottom: 0.01rem solid #eee;
+  padding: 0 0.4rem;
+  color: #fff;
+  /* border-bottom: 0.01rem solid #eee; */
   text-decoration: none;
-
-  :active {
-    background-color: #f2f2f2;
-  }
 `;
 
 const NavText = styled.div`
   flex: 1;
   margin-left: 0.24rem;
-  font-size: 0.24rem;
+  font-size: 0.2rem;
 `;
 
 export {

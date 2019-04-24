@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Icon from '../common/components/Icon';
 
-import Sidebar from '../Sidebar';
 import Login from '../Login';
 import Hangup from '../Hangup';
 import Analysis from '../Analysis';
@@ -32,21 +31,18 @@ const routeConfig = [
 function Dashboard({ match }) {
   return (
     <styled.DashboardWrapper>
-      <Router>
-        {/* Sidebar */}
-        <Sidebar />
-        {/* Main */}
-        <styled.Main>
-          {routeConfig.map((route) => {
-            return (
-              <Route
-                path={`${match.url}/${route.path}`}
-                component={route.component}
-              />
-            );
-          })}
-        </styled.Main>
-      </Router>
+      {/* Main */}
+      <styled.Main>
+        {routeConfig.map((route) => {
+          return (
+            <Route
+              path={`${match.url}/${route.path}`}
+              component={route.component}
+              key={route.path}
+            />
+          );
+        })}
+      </styled.Main>
     </styled.DashboardWrapper>
   );
 }
