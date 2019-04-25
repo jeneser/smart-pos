@@ -27,7 +27,7 @@ function NavBar({ handleSidebar }) {
           handleSidebar(isClicked);
         }}
       >
-        <Icon name="icon_menu_white" width="0.30" height="0.30" />
+        <Icon name="icon_menu_white" width="0.28" height="0.28" />
       </styled.NavItemBase>
       <styled.NavItem to="/home/shelf/one" activeStyle={activeStyle}>
         服饰上新
@@ -39,10 +39,10 @@ function NavBar({ handleSidebar }) {
         配饰挂件
       </styled.NavItem>
       <styled.NavItem to="/home/products" activeStyle={activeStyle}>
-        <Icon name="icon_query_list_white" width="0.28" height="0.28" />
+        <Icon name="icon_query_list_white" width="0.26" height="0.26" />
       </styled.NavItem>
       <styled.NavItem to="/home/calculator" activeStyle={activeStyle}>
-        <Icon name="icon_calculator_white" width="0.30" height="0.30" />
+        <Icon name="icon_calculator_white" width="0.28" height="0.28" />
       </styled.NavItem>
     </styled.NavBar>
   );

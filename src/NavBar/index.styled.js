@@ -12,6 +12,7 @@ const NavBar = styled.div`
   height: 0.8rem;
   text-align: center;
   background-color: #3d454c;
+  z-index: 2;
 `;
 
 const NavItemBase = styled.div`

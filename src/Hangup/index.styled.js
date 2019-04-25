@@ -13,82 +13,51 @@ const Wrapper = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 50%;
+  height: 36%;
   margin-bottom: 0.4rem;
-  padding: 0 0.34rem;
+  padding: 0 0.4rem;
+  margin: 0.4rem 0;
 `;
 
 const Card = styled.div`
   position: relative;
-  width: 48%;
+  flex: 1;
+  max-width: calc(50% - 0.2rem);
   height: 100%;
-  border: 0.01rem solid #ccc;
-`;
-
-const CardHead = styled.div`
-  display: flex;
-  align-items: center;
-  height: 0.6rem;
-  padding: 0 0.24rem;
-  font-size: 0.22rem;
-  border-bottom: 0.01rem solid #ccc;
-`;
-
-const CardBody = styled.div`
-  height: calc(100% - 0.6rem - 0.6rem);
-  padding: 0.1rem 0.24rem 0 0.24rem;
+  border: 0.01rem solid #eee;
   overflow-y: scroll;
+  border-radius: 5px;
+  box-shadow: 0.02rem 0.02rem 0.1rem rgba(0, 0, 0, 0.1);
+
+  :last-child {
+    margin-right: 0;
+  }
+
+  :active {
+    background-color: #f2f2f2;
+  }
 
   ::-webkit-scrollbar {
     display: none;
   }
 `;
 
-const CardFoot = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+const CardHead = styled.div`
+  position: sticky;
+  top: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  /* align-items: center; */
-  height: 0.6rem;
+  padding: 0.15rem 0.24rem;
+  font-size: 0.18rem;
+  color: #333;
   background-color: #fff;
-  padding: 0 0.24rem;
+  z-index: 1;
+  border-bottom: 0.01rem solid #eee;
 `;
 
-const Button = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 0.42rem;
-  /* width: 30%; */
-  font-size: 0.2rem;
-  /* padding: 0.05rem 0.4rem; */
-  padding: 0.02rem 0.3rem;
-  border: 0.01rem solid #ccc;
-
-  ${(props) =>
-    props.primary &&
-    css`
-      color: #2997cc;
-      border-color: #2997cc;
-      :active {
-        color: #fff;
-        background-color: #2997cc;
-      }
-    `}
-
-  ${(props) =>
-    props.warn &&
-    css`
-      color: #ff4949;
-      border-color: #ff4949;
-      :active {
-        color: #fff;
-        background-color: #ff4949;
-      }
-    `}
+const CardBody = styled.div`
+  padding: 0 0.24rem;
 `;
 
 const ListItem = styled.div`
@@ -96,61 +65,30 @@ const ListItem = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  font-size: 0.2rem;
-  color: #000;
-  padding: 0.2rem 0;
-  /* margin-bottom: 0.1rem; */
-
-  ${(props) =>
-    props.borderTop
-      ? css`
-          margin-top: 0.1rem;
-          border-top: 1px solid #ccc;
-        `
-      : ''}
-
-  :active {
-    background-color: #f2f2f2;
-  }
+  font-size: 0.18rem;
+  padding: 0.15rem 0;
+  margin: 0.05rem 0;
+  border-bottom: 1px solid #eee;
 `;
 
-const Image = styled.img`
-  max-width: 0.64rem;
-  width: 100%;
-  height: 0.64rem;
-  margin-right: 0.2rem;
-  background-color: #eee;
-`;
-
-const ItemInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 0.64rem;
-`;
-
-const ItemTitle = styled.div`
+const Text = styled.div`
+  flex: 1;
   width: 62.5%;
-  font-size: 0.22rem;
+  margin-left: 0.15rem;
+  font-size: 0.19rem;
   color: #333;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
-const ItemDesc = styled.div`
-  display: flex;
-  font-size: 0.2rem;
-  color: #666;
+const ItemTitle = styled(Text)`
+  color: #444;
+  font-size: 0.17rem;
 `;
 
 const ItemPrice = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0.2rem;
-  font-size: 0.22rem;
+  font-size: 0.18rem;
   color: #666;
 `;
 
@@ -160,12 +98,8 @@ export {
   Card,
   CardHead,
   CardBody,
-  CardFoot,
-  Button,
   ListItem,
-  Image,
-  ItemInfo,
+  Text,
   ItemTitle,
-  ItemDesc,
   ItemPrice
 };

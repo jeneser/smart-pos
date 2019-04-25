@@ -1,9 +1,12 @@
 import React from 'react';
+import { Container, HeaderBar } from '../Analysis/index.styled';
+
 import * as styled from './index.styled';
 
 function Login() {
   return (
-    <styled.Wrapper>
+    <Container>
+      <HeaderBar>用户登陆</HeaderBar>
       <styled.LoginBox>
         <styled.UsernameInput>
           <styled.EnhanceIcon
@@ -38,7 +41,7 @@ function Login() {
         <styled.Button>立即登陆</styled.Button>
         <styled.TipText>登陆遇到问题？</styled.TipText>
       </styled.LoginBox>
-    </styled.Wrapper>
+    </Container>
   );
 }
 

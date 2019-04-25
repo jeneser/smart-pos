@@ -19,13 +19,8 @@ const navConfig = [
     iconName: 'icon_historyorder_white'
   },
   {
-    path: 'queryItem',
-    name: '库存查询',
-    iconName: 'icon_listtask_white'
-  },
-  {
     path: 'configuration',
-    name: '设置',
+    name: '用户设置',
     iconName: 'icon_config_white'
   }
 ];
