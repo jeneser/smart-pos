@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const Shelf = styled.div`
-  width: 66.666666%;
-  height: calc(100vh - 0.8rem);
-  padding: 0.2rem;
-  background-color: #f2f4f5;
+  /* width: 66.666666%; */
+  /* height: 100%;
+  flex: 1; */
+  /* height: calc(100vh - 0.8rem); */
+  /* padding: 0.2rem; */
+  /* background-color: #f2f4f5; */
 `;
 
 const Row = styled.div`
@@ -18,8 +20,8 @@ const Card = styled.div`
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 1.648rem;
-  height: 1.648rem;
+  width: 1.2rem;
+  height: 1.2rem;
   font-size: 0.2rem;
   background-color: #ededed;
   border: solid 1px #ccc;

@@ -10,6 +10,7 @@ function Shelf({ match }) {
   const productsData = mockProducts;
   const discountsData = mockDiscounts;
 
+  return '';
   return (
     <styled.Shelf>
       {/* 推荐商品 */}
