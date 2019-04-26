@@ -13,7 +13,7 @@ const App = styled.div`
 `;
 
 const Main = styled.div`
-  position: relative;
+  /* position: relative;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -21,7 +21,7 @@ const Main = styled.div`
 
   ::-webkit-scrollbar {
     display: none;
-  }
+  } */
 `;
 
 export { App, Main };

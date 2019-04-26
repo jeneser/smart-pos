@@ -21,7 +21,7 @@ const Home = ({ match }) => {
       <Route path={`${match.url}/calculator`} component={Calculator} />
 
       {/* 订单 */}
-      <SaleBlock />
+      {/* <SaleBlock /> */}
     </styled.Container>
   );
 };

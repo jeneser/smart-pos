@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Icon from '../common/components/Icon';
 import * as styled from './index.styled';
 
@@ -9,62 +9,72 @@ function SaleBlock() {
   const discountList = mockDiscountList;
 
   return (
-    <styled.Wrapper>
+    <styled.SaleBlock>
       {/* head */}
-      {/* <styled.Head>
-        <styled.Title>当前订单</styled.Title>
-        <Icon name="icon_more_c_black" width="0.32" height="0.32" />
-      </styled.Head> */}
-      {/* List */}
-      <styled.List>
-        {saleList.map((item) => {
-          return (
-            <styled.ListItem key={item.itemId}>
-              <styled.Image src={item.itemPic} />
-
-              <styled.ItemInfo>
-                <styled.ItemTitle>{item.itemTitle}</styled.ItemTitle>
-                <styled.ItemDesc>{item.itemDesc}</styled.ItemDesc>
-              </styled.ItemInfo>
-
-              <styled.ItemPrice>￥{item.itemPrice}</styled.ItemPrice>
-              <styled.IconDelete
-                name="icon_delete_red"
+      <styled.Head>
+        <Icon name="icon_delete_black" width="0.24" height="0.24" />
+        <styled.Title>账单</styled.Title>
+        <Icon name="icon_more_black" width="0.24" height="0.24" />
+      </styled.Head>
+      {/* body */}
+      <styled.Body>
+        {/* Customer */}
+        <styled.Customer>
+          <Icon name="icon_user_c_gray" width="0.2" height="0.2" />
+          <styled.CustomerId>顾客1的账单</styled.CustomerId>
+          <styled.EnhanceIcon name="icon_add_c_gray" width="0.2" height="0.2" />
+        </styled.Customer>
+        {/* ProductList */}
+        <styled.ProductList>
+          {saleList.map((item) => {
+            return (
+              <styled.ListItem key={item.itemId}>
+                <styled.Image src={item.itemPic} />
+                {/* ItemInfo */}
+                <styled.ItemInfo>
+                  <styled.ItemTitle>{item.itemTitle}</styled.ItemTitle>
+                  <styled.ItemDesc>{item.itemDesc}</styled.ItemDesc>
+                </styled.ItemInfo>
+                {/* ItemCount */}
+                <styled.ItemCount>2</styled.ItemCount>
+                {/* PriceWrapper */}
+                <styled.PriceWrapper>
+                  <styled.ItemPrice>{item.itemPrice}</styled.ItemPrice>
+                  <styled.ItemOriginPrice>
+                    {item.itemPrice}
+                  </styled.ItemOriginPrice>
+                </styled.PriceWrapper>
+              </styled.ListItem>
+            );
+          })}
+        </styled.ProductList>
+        {/* Settlement */}
+        <styled.Settlement>
+          {/* SettleList */}
+          <styled.SettleList>
+            <styled.SettleItem primary>
+              <styled.TextLabel>添加优惠折扣</styled.TextLabel>
+              <styled.EnhanceIcon
+                name="icon_add_c_gray"
                 width="0.2"
                 height="0.2"
               />
-            </styled.ListItem>
-          );
-        })}
-
-        {/* {discountList.map((item, index) => {
-          return (
-            <styled.ListItem borderTop={index === 0} key={item.discountId}>
-              <styled.Image src={item.picture} />
-
-              <styled.ItemInfo>
-                <styled.ItemTitle>{item.title}</styled.ItemTitle>
-                <styled.ItemDesc>{item.discountDesc}</styled.ItemDesc>
-              </styled.ItemInfo>
-
-              <styled.ItemPrice>
-                {item.discountRate || item.amount}
-              </styled.ItemPrice>
-              <styled.IconDelete
-                name="icon_error_black"
-                width="0.2"
-                height="0.2"
-              />
-            </styled.ListItem>
-          );
-        })} */}
-      </styled.List>
-      {/* foot */}
-      {/* <styled.Foot>
-        <styled.Button>挂起</styled.Button>
-        <styled.Button primary>结算</styled.Button>
-      </styled.Foot> */}
-    </styled.Wrapper>
+            </styled.SettleItem>
+            <styled.SettleItem>
+              <styled.TextLabel>总优惠</styled.TextLabel>330
+            </styled.SettleItem>
+            <styled.SettleItem>
+              <styled.TextLabel>扣除税</styled.TextLabel>10
+            </styled.SettleItem>
+          </styled.SettleList>
+          {/* Amount */}
+          <styled.Amount>
+            <styled.TextLabel>总计</styled.TextLabel>
+            300.00
+          </styled.Amount>
+        </styled.Settlement>
+      </styled.Body>
+    </styled.SaleBlock>
   );
 }
 

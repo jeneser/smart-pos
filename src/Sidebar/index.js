@@ -1,5 +1,7 @@
 import React from 'react';
 import Icon from '../common/components/Icon';
+
+import theme from '../common/styles/theme';
 import * as styled from './index.styled';
 
 const navConfig = [
@@ -27,7 +29,7 @@ const navConfig = [
 const baseUrl = '/dashboard';
 
 const activeStyle = {
-  backgroundColor: '#2a2f33'
+  backgroundColor: theme.p2
 };
 
 const userAvatar =
@@ -39,40 +41,66 @@ const userAvatar =
  */
 function Sidebar({ isShow, handleSidebar }) {
   return (
-    isShow && (
-      <styled.Sidebar onClick={handleSidebar}>
-        {/* UserBlock */}
-        {/* <styled.UserBlock to={`${baseUrl}/login`}> */}
-        {/* Avatar */}
-        {/* <styled.Avatar src={userAvatar} /> */}
-        {/* UserInfo */}
-        {/* <styled.UserInfo>
-            <styled.UserNick>帅气的Jeneser</styled.UserNick>
-            <styled.UserDesc>
-              <styled.RoleTag>店长</styled.RoleTag>
-              <styled.RoleTag>管理员</styled.RoleTag>
-            </styled.UserDesc>
-          </styled.UserInfo>
-          <Icon name="icon_right_gray" width="0.3" height="0.3" /> */}
-        {/* </styled.UserBlock> */}
+    <styled.Sidebar>
+      {/* <styled.MenuList> */}
+      <styled.MenuItem bottomBorder height="0.68" flexEnd>
+        <Icon name="icon_menu_black" width="0.24" height="0.24" />
+      </styled.MenuItem>
+      <styled.MenuItem topMargin>
+        <Icon name="icon_shopping_cart_gray" width="0.24" height="0.24" />
+      </styled.MenuItem>
 
-        {/* NavItem */}
-        {navConfig.map((navItem) => {
-          return (
-            <styled.NavItem
-              to={`${baseUrl}/${navItem.path}`}
-              activeStyle={activeStyle}
-              key={navItem.name}
-            >
-              <Icon name={navItem.iconName} width="0.24" height="0.24" />
-              <styled.NavText>{navItem.name}</styled.NavText>
-              <Icon name="icon_right_gray" width="0.18" height="0.18" />
-            </styled.NavItem>
-          );
-        })}
-      </styled.Sidebar>
-    )
+      <styled.MenuItem style={activeStyle}>
+        <Icon name="icon_list_gray" width="0.24" height="0.24" />
+      </styled.MenuItem>
+      <styled.MenuItem>
+        <Icon name="icon_analysis_gray" width="0.24" height="0.24" />
+      </styled.MenuItem>
+      <styled.MenuItem>
+        <Icon name="icon_setting_gray" width="0.24" height="0.24" />
+      </styled.MenuItem>
+      <styled.MenuItem bottom>
+        <Icon name="icon_user_gray" width="0.24" height="0.24" />
+      </styled.MenuItem>
+      {/* </styled.MenuList> */}
+    </styled.Sidebar>
   );
+
+  // return (
+  //   isShow && (
+  //     <styled.Sidebar onClick={handleSidebar}>
+  //       {/* UserBlock */}
+  //       {/* <styled.UserBlock to={`${baseUrl}/login`}> */}
+  //       {/* Avatar */}
+  //       {/* <styled.Avatar src={userAvatar} /> */}
+  //       {/* UserInfo */}
+  //       {/* <styled.UserInfo>
+  //           <styled.UserNick>帅气的Jeneser</styled.UserNick>
+  //           <styled.UserDesc>
+  //             <styled.RoleTag>店长</styled.RoleTag>
+  //             <styled.RoleTag>管理员</styled.RoleTag>
+  //           </styled.UserDesc>
+  //         </styled.UserInfo>
+  //         <Icon name="icon_right_gray" width="0.3" height="0.3" /> */}
+  //       {/* </styled.UserBlock> */}
+
+  //       {/* NavItem */}
+  //       {navConfig.map((navItem) => {
+  //         return (
+  //           <styled.NavItem
+  //             to={`${baseUrl}/${navItem.path}`}
+  //             activeStyle={activeStyle}
+  //             key={navItem.name}
+  //           >
+  //             <Icon name={navItem.iconName} width="0.24" height="0.24" />
+  //             <styled.NavText>{navItem.name}</styled.NavText>
+  //             <Icon name="icon_right_gray" width="0.18" height="0.18" />
+  //           </styled.NavItem>
+  //         );
+  //       })}
+  //     </styled.Sidebar>
+  //   )
+  // );
 }
 
 export default Sidebar;

@@ -1,26 +1,73 @@
 import styled, { css } from 'styled-components';
+import theme from '../common/styles/theme';
 import Icon from '../common/components/Icon';
 
-const Wrapper = styled.div`
-  width: 100%;
-  overflow-y: scroll;
-  /* width: 50%; */
-  /* height: 100%; */
-  /* position: relative;
-  height: 100%;
-  background-color: #fff;
-  border: 0.02rem solid #ccc;
-  border-bottom: none;
-  box-shadow: -0.04px 0 0.1px rgba(255, 255, 255, 0.1); */
+const SaleBlock = styled.div`
+  position: relative;
+
+  width: 3.68rem;
+  height: 100vh;
+  border-left: 0.01rem solid ${theme.p5};
+
+  /* // TODO */
+  margin-left: 5.66rem;
 `;
 
-const List = styled.div`
+const Head = styled.div`
   display: flex;
-  flex-direction: column;
-  width: 52%;
-  /* height: calc(100% - 1rem); */
-  padding: 0 0.1rem;
-  overflow: scroll;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0.15rem 0.2rem;
+  height: 0.68rem;
+  border-bottom: 0.01rem solid ${theme.p5};
+`;
+
+const Title = styled.div`
+  font-size: 0.2rem;
+  color: ${theme.p4};
+`;
+
+const Body = styled.div`
+  padding: 0.15rem 0.2rem;
+`;
+
+const Customer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 0.64rem;
+  padding: 0.15rem;
+  margin-bottom: 0.15rem;
+  color: ${theme.p7};
+  font-size: 0.16rem;
+  background-color: ${theme.p8};
+  border-radius: 0.04rem;
+  border: 0.01rem solid ${theme.p5};
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+
+  :active {
+    opacity: 0.8;
+  }
+`;
+
+const CustomerId = styled.div`
+  margin-left: 0.1rem;
+  padding-top: 0.02rem;
+`;
+
+const EnhanceIcon = styled(Icon)`
+  position: absolute;
+  right: 0.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const ProductList = styled.div`
+  height: 3.2rem;
+  overflow-y: scroll;
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.04rem;
 
   ::-webkit-scrollbar {
     display: none;
@@ -30,147 +77,163 @@ const List = styled.div`
 const ListItem = styled.div`
   position: relative;
   display: flex;
-  align-items: flex-start;
-  font-size: 0.2rem;
-  color: #000;
-  padding: 0.2rem;
-  margin-bottom: 0.1rem;
-  border: 0.01rem solid #eee;
-  box-shadow: 0.02rem 0.02rem 0.1rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.08rem;
+  align-items: center;
+  height: 0.64rem;
+  padding: 0 0.15rem;
+  font-size: 0.18rem;
+  color: ${theme.p4};
+  border: 0.01rem solid ${theme.p5};
   overflow: hidden;
-
-  ${(props) =>
-    props.borderTop
-      ? css`
-          margin-top: 0.1rem;
-          border-top: 1px solid #ccc;
-        `
-      : ''}
 
   :active {
     background-color: #f2f2f2;
   }
+
+  :not(:last-child) {
+    border-bottom: none;
+  }
 `;
 
 const Image = styled.img`
-  max-width: 0.64rem;
+  max-width: 0.42rem;
   width: 100%;
-  height: 0.64rem;
-  margin-right: 0.15rem;
-  background-color: #f2f2f2;
-  border-radius: 0.05rem;
+  height: 0.42rem;
+  margin-right: 0.12rem;
+  background-color: ${theme.p6};
+  border-radius: 0.04rem;
 `;
 
 const ItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: flex-start;
-  /* width: 100%; */
   flex: 1;
-  height: 0.64rem;
 `;
 
 const ItemTitle = styled.div`
-  flex: 1;
-  font-size: 0.18rem;
-  color: #333;
+  max-width: 1.48rem;
+  font-size: 0.15rem;
+  color: ${theme.p4};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
 const ItemDesc = styled.div`
-  display: flex;
-  font-size: 0.16rem;
-  color: #999;
+  margin-top: 0.02rem;
+  font-size: 0.14rem;
+  color: ${theme.p9};
 `;
 
-const ItemPrice = styled.div`
-  /* position: absolute;
-  top: 0.2rem;
-  right: 0; */
-  /* bottom: 0.2rem; */
-  /* width: 10%; */
-  font-size: 0.18rem;
-  color: #333;
-`;
-
-const Head = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.2rem;
-  height: 0.8rem;
-  border-bottom: 0.01rem solid #999;
-`;
-
-const Title = styled.div`
-  font-size: 0.26rem;
-`;
-
-const IconDelete = styled(Icon)`
-  position: absolute;
-  right: 0.2rem;
-  bottom: 0.2rem;
-`;
-
-const Foot = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  height: 0.8rem;
-  font-size: 0.26rem;
-  /* text-align: center; */
-  /* color: #fff; */
-  /* background-color: #2997cc; */
-
-  /* :active {
-    opacity: 0.9;
-  } */
-`;
-
-const Button = styled.div`
+const ItemCount = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 100%;
-  border: 0.01rem solid #ccc;
+  min-width: 0.22rem;
+  height: 0.22rem;
+  font-size: 0.15rem;
+  color: ${theme.p4};
+  background-color: ${theme.p6};
+  border-radius: 0.04rem;
+  border: 0.01rem solid ${theme.p5};
+`;
+
+const PriceWrapper = styled.div`
+  width: 0.54rem;
+  margin-left: 0.1rem;
+  text-align: right;
+`;
+
+const ItemPrice = styled.div`
+  font-size: 0.15rem;
+  color: ${theme.p4};
+`;
+
+const ItemOriginPrice = styled(ItemPrice)`
+  margin-top: 0.02rem;
+  color: ${theme.p9};
+  text-decoration: line-through;
+`;
+
+const Settlement = styled.div`
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0.2rem;
+  right: 0.2rem;
+`;
+
+const SettleList = styled.div`
+  height: 1.44rem;
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.04rem;
+`;
+
+const SettleItem = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 0.48rem;
+  padding: 0 0.15rem;
+  font-size: 0.14rem;
+  color: ${theme.p4};
+  border: 0.01rem solid ${theme.p5};
 
   :active {
-    background-color: ${(props) => (props.primary ? '' : '#f2f2f2')};
+    background-color: #f2f2f2;
+  }
+
+  :not(:last-child) {
+    border-bottom: none;
   }
 
   ${(props) =>
     props.primary &&
     css`
-      color: #fff;
-      background-color: #2997cc;
-
-      :active {
-        opacity: 0.9;
-      }
+      color: ${theme.p2};
     `}
 `;
 
+const Amount = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 0.48rem;
+  padding: 0 0.15rem;
+  margin-top: 0.15rem;
+  color: #fff;
+  background-color: ${theme.p2};
+  font-size: 0.18rem;
+  border-radius: 0.04rem;
+  border: 0.01rem solid ${theme.p5};
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+`;
+
+const TextLabel = styled.div`
+  font-size: 0.15rem;
+`;
+
 export {
-  Wrapper,
+  SaleBlock,
   Head,
   Title,
-  List,
+  Body,
+  Customer,
+  CustomerId,
+  EnhanceIcon,
+  ItemCount,
+  ProductList,
   ListItem,
   ItemInfo,
   ItemTitle,
   ItemDesc,
+  PriceWrapper,
+  ItemOriginPrice,
   ItemPrice,
-  IconDelete,
+  Settlement,
+  SettleList,
+  SettleItem,
   Image,
-  Foot,
-  Button
+  Amount,
+  TextLabel
 };
