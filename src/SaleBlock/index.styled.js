@@ -1,41 +1,25 @@
 import styled, { css } from 'styled-components';
 import Icon from '../common/components/Icon';
 
-const SaleBlock = styled.div`
-  /* position: relative;
-  width: 33.333334%;
-  height: calc(100vh - 0.8rem);
-  padding: 0.2rem 0; */
-`;
-
 const Wrapper = styled.div`
-  position: relative;
+  width: 100%;
+  overflow-y: scroll;
+  /* width: 50%; */
+  /* height: 100%; */
+  /* position: relative;
   height: 100%;
   background-color: #fff;
   border: 0.02rem solid #ccc;
   border-bottom: none;
-  box-shadow: -0.04px 0 0.1px rgba(255, 255, 255, 0.1);
-`;
-
-const Head = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.2rem;
-  height: 0.8rem;
-  border-bottom: 0.01rem solid #999;
-`;
-
-const Title = styled.div`
-  font-size: 0.26rem;
+  box-shadow: -0.04px 0 0.1px rgba(255, 255, 255, 0.1); */
 `;
 
 const List = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  height: calc(100% - 1.6rem);
-  padding: 0 0.2rem 0 0.2rem;
+  width: 52%;
+  /* height: calc(100% - 1rem); */
+  padding: 0 0.1rem;
   overflow: scroll;
 
   ::-webkit-scrollbar {
@@ -46,12 +30,15 @@ const List = styled.div`
 const ListItem = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
   font-size: 0.2rem;
   color: #000;
-  padding: 0.2rem 0;
+  padding: 0.2rem;
   margin-bottom: 0.1rem;
+  border: 0.01rem solid #eee;
+  box-shadow: 0.02rem 0.02rem 0.1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.08rem;
+  overflow: hidden;
 
   ${(props) =>
     props.borderTop
@@ -70,22 +57,24 @@ const Image = styled.img`
   max-width: 0.64rem;
   width: 100%;
   height: 0.64rem;
-  margin-right: 0.2rem;
-  background-color: #eee;
+  margin-right: 0.15rem;
+  background-color: #f2f2f2;
+  border-radius: 0.05rem;
 `;
 
 const ItemInfo = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: flex-start;
-  width: 100%;
+  /* width: 100%; */
+  flex: 1;
   height: 0.64rem;
 `;
 
 const ItemTitle = styled.div`
-  width: 62.5%;
-  font-size: 0.22rem;
+  flex: 1;
+  font-size: 0.18rem;
   color: #333;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -94,22 +83,37 @@ const ItemTitle = styled.div`
 
 const ItemDesc = styled.div`
   display: flex;
-  font-size: 0.2rem;
-  color: #666;
+  font-size: 0.16rem;
+  color: #999;
 `;
 
 const ItemPrice = styled.div`
-  position: absolute;
-  right: 0;
-  bottom: 0.2rem;
-  font-size: 0.22rem;
-  color: #666;
+  /* position: absolute;
+  top: 0.2rem;
+  right: 0; */
+  /* bottom: 0.2rem; */
+  /* width: 10%; */
+  font-size: 0.18rem;
+  color: #333;
+`;
+
+const Head = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem;
+  height: 0.8rem;
+  border-bottom: 0.01rem solid #999;
+`;
+
+const Title = styled.div`
+  font-size: 0.26rem;
 `;
 
 const IconDelete = styled(Icon)`
   position: absolute;
-  right: 0;
-  top: 0.2rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
 `;
 
 const Foot = styled.div`
@@ -156,7 +160,6 @@ const Button = styled.div`
 `;
 
 export {
-  SaleBlock,
   Wrapper,
   Head,
   Title,

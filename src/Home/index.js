@@ -10,7 +10,7 @@ import * as styled from './index.styled';
 
 const Home = ({ match }) => {
   return (
-    <styled.Wrapper>
+    <styled.Container>
       {/* 推荐商品 */}
       <Route path={`${match.url}/shelf/:shelfId`} exact component={Shelf} />
 
@@ -22,7 +22,7 @@ const Home = ({ match }) => {
 
       {/* 订单 */}
       <SaleBlock />
-    </styled.Wrapper>
+    </styled.Container>
   );
 };
 

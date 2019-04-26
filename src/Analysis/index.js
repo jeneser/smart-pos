@@ -1,6 +1,4 @@
 import React from 'react';
-import { Wrapper } from '../Hangup/index.styled';
-
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/bar';
@@ -174,7 +172,8 @@ const pieChartOptions = {
 
 function Analysis() {
   return (
-    <Wrapper>
+    <styled.Container>
+      <styled.HeaderBar>近期报表分析</styled.HeaderBar>
       <styled.Summary>
         <styled.Col>
           <styled.Title>￥9989.00</styled.Title>
@@ -215,7 +214,7 @@ function Analysis() {
           style={{ height: '400px', width: '100%' }}
         />
       </styled.ChartCard>
-    </Wrapper>
+    </styled.Container>
   );
 }
 

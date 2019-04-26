@@ -1,18 +1,20 @@
 import styled, { css } from 'styled-components';
 import Icon from '../common/components/Icon';
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const Wrapper = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* justify-content: center; */
+  margin: 0 auto;
   width: 50%;
-  margin-top: 1rem;
+  align-self: center;
 `;
 
 const Input = styled.input`
@@ -93,7 +95,7 @@ margin-top: 0.4rem;
 `;
 
 export {
-  Wrapper,
+  // Wrapper,
   LoginBox,
   Input,
   UsernameInput,

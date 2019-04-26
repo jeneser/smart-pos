@@ -13,7 +13,7 @@ function Products() {
       <styled.Wrapper>
         {/* SearchBar */}
         <styled.SearchBar>
-          <styled.SearchInput placeholder="查询所有商品&优惠&折扣" autofocus />
+          <styled.SearchInput placeholder="查询所有商品&优惠&折扣" autoFocus />
           <styled.SearchIcon>
             <Icon name="icon_search_white" width="0.32" height="0.32" />
           </styled.SearchIcon>
