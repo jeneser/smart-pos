@@ -4,13 +4,9 @@ import Icon from '../common/components/Icon';
 
 const SaleBlock = styled.div`
   position: relative;
-
-  width: 3.68rem;
+  width: 3.8rem;
   height: 100vh;
   border-left: 0.01rem solid ${theme.p5};
-
-  /* // TODO */
-  margin-left: 5.66rem;
 `;
 
 const Head = styled.div`
@@ -18,7 +14,7 @@ const Head = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   padding: 0.15rem 0.2rem;
-  height: 0.68rem;
+  height: 0.64rem;
   border-bottom: 0.01rem solid ${theme.p5};
 `;
 

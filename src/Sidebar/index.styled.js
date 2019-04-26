@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Sidebar = styled.div`
   position: relative;
-  width: 0.9rem;
+  width: 0.68rem;
   height: 100vh;
   font-size: 0.2rem;
   border-right: 0.01rem solid ${theme.p5};
@@ -14,8 +14,8 @@ const MenuItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 0.68rem;
+  height: 0.68rem;
 
   ${(props) =>
     props.flexEnd &&

@@ -43,7 +43,7 @@ function Sidebar({ isShow, handleSidebar }) {
   return (
     <styled.Sidebar>
       {/* <styled.MenuList> */}
-      <styled.MenuItem bottomBorder height="0.68" flexEnd>
+      <styled.MenuItem bottomBorder height="0.64" flexEnd>
         <Icon name="icon_menu_black" width="0.24" height="0.24" />
       </styled.MenuItem>
       <styled.MenuItem topMargin>

@@ -8,6 +8,7 @@ import Home from '../Home';
 import Dashboard from '../Dashboard';
 
 import SaleBlock from '../SaleBlock';
+import Products from '../Products';
 
 import * as styled from './index.styled';
 
@@ -23,6 +24,9 @@ function App() {
       <styled.App>
         {/* Sidebar */}
         <Sidebar />
+
+        {/* Products */}
+        <Products />
 
         {/* SaleBlock */}
         <SaleBlock />

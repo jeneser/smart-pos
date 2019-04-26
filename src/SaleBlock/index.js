@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Icon from '../common/components/Icon';
 import * as styled from './index.styled';
 
@@ -12,9 +12,9 @@ function SaleBlock() {
     <styled.SaleBlock>
       {/* head */}
       <styled.Head>
-        <Icon name="icon_delete_black" width="0.24" height="0.24" />
+        <Icon name="icon_delete_black" width="0.22" height="0.22" />
         <styled.Title>账单</styled.Title>
-        <Icon name="icon_more_black" width="0.24" height="0.24" />
+        <Icon name="icon_more_black" width="0.22" height="0.22" />
       </styled.Head>
       {/* body */}
       <styled.Body>
