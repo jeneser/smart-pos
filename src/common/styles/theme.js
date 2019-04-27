@@ -13,7 +13,8 @@ const themes = {
   p8: '#ffeced',
   p9: '#c4c4c4',
 
-  b1: '#00cf3f'
+  b1: '#00cf3f',
+  b2: '#e7feee'
 };
 
 export default themes;

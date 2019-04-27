@@ -99,21 +99,21 @@ const mockBills = [
         cashier: 'jeneser'
       },
       {
-        orderId: '10120032001',
+        orderId: '1012066032001',
         payAmount: '322.00',
         payTime: '12:00 AM',
         payStatus: '支付成功',
         cashier: 'jeneser'
       },
       {
-        orderId: '10120032001',
+        orderId: '1012006732001',
         payAmount: '322.00',
         payTime: '12:00 AM',
         payStatus: '支付成功',
         cashier: 'jeneser'
       },
       {
-        orderId: '10120032001',
+        orderId: '101200342001',
         payAmount: '322.00',
         payTime: '12:00 AM',
         payStatus: '支付成功',
