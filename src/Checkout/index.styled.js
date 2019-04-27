@@ -34,7 +34,12 @@ const Title = styled.div`
   color: ${theme.p4};
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Foot = styled.div`
   position: absolute;
@@ -46,15 +51,10 @@ const Foot = styled.div`
 
 const Row = styled.div`
   display: flex;
-
-  ${(props) =>
-    props.right &&
-    css`
-      justify-content: flex-end;
-    `}
+  justify-content: center;
 
   :not(:last-child) {
-    margin-bottom: 0.24rem;
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -64,10 +64,6 @@ const Col = styled.div`
   :not(:last-child) {
     border-right: 0.01rem solid ${theme.p5};
   }
-
-  :last-child {
-    padding-right: 0;
-  }
 `;
 
 const Button = styled.div`
@@ -75,7 +71,7 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 0.4rem;
-  margin-left: 0.24rem;
+  margin: 0 0.2rem;
   height: 0.48rem;
   min-width: 1.8rem;
   font-size: 0.16rem;
@@ -110,12 +106,47 @@ const TextValue = styled.div`
     `}
 `;
 
+const Qrbox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.58rem 0;
+  border: 0.01rem solid ${theme.p5};
+  border-radius: 0.06rem;
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+`;
+
+const QrImage = styled.img`
+  width: 2rem;
+  height: 2rem;
+  margin: 0.32rem;
+`;
+
+const MessageBox = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 0.8rem;
+  padding: 0 0.32rem;
+  font-size: 0.17rem;
+  color: #fff;
+  background-color: ${theme.b1};
+`;
+const Tips = styled.div`
+  margin-left: 0.1rem;
+`;
+
 export {
   Checkout,
   Container,
   Head,
   Title,
   Body,
+  Qrbox,
+  QrImage,
+  MessageBox,
+  Tips,
   Foot,
   Row,
   Col,
