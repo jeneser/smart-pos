@@ -11,7 +11,9 @@ const themes = {
   p6: '#fafafa',
   p7: '#9C9FA4',
   p8: '#ffeced',
-  p9: '#c4c4c4'
+  p9: '#c4c4c4',
+
+  b1: '#00cf3f'
 };
 
 export default themes;

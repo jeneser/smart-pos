@@ -10,6 +10,8 @@ import Dashboard from '../Dashboard';
 import SaleBlock from '../SaleBlock';
 import Products from '../Products';
 
+import Checkout from '../Checkout';
+
 import * as styled from './index.styled';
 
 function RedirectToHome() {
@@ -18,6 +20,8 @@ function RedirectToHome() {
 
 function App() {
   const [isShowSidebar, setIsShowSidebar] = useState(false);
+
+  return <Checkout />
 
   return (
     <Router>
