@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
-import Headbar from '../Headbar';
 import NavBar from '../NavBar';
 import Sidebar from '../Sidebar';
 import Home from '../Home';
@@ -12,6 +11,8 @@ import Products from '../Products';
 
 import Checkout from '../Checkout';
 
+import Orders from '../Orders';
+
 import * as styled from './index.styled';
 
 function RedirectToHome() {
@@ -21,7 +22,7 @@ function RedirectToHome() {
 function App() {
   const [isShowSidebar, setIsShowSidebar] = useState(false);
 
-  return <Checkout />
+  // return <Checkout />
 
   return (
     <Router>
@@ -30,10 +31,13 @@ function App() {
         <Sidebar />
 
         {/* Products */}
-        <Products />
+        {/* <Products /> */}
 
         {/* SaleBlock */}
-        <SaleBlock />
+        {/* <SaleBlock /> */}
+
+        {/* Orders */}
+        <Orders />
         
         {/* main */}
         <styled.Main>

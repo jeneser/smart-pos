@@ -1,115 +1,132 @@
 const mockBills = [
   {
-    billId: '10100001',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
+    date: '2019/03/29',
+    list: [
+      {
+        orderId: '10100454001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10104540001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10100545001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10134232300001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10102340001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      }
+    ]
   },
   {
-    billId: '10100002',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100003',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100004',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100005',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100006',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100007',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
-  },
-  {
-    billId: '10100008',
-    payAmount: '322.00',
-    payTime: '2019/10/23 12:00',
-    payStatus: 'SUCCESS',
-    shipType: 'AUTO'
+    date: '2019/04/09',
+    list: [
+      {
+        orderId: '10100767001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10100787001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '1010034001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '101003476001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '101002467001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '101007879001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10100789001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10100576001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10120032001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10120032001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '10120032001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      },
+      {
+        orderId: '101004378001',
+        payAmount: '322.00',
+        payTime: '12:00 AM',
+        payStatus: '支付成功',
+        cashier: 'jeneser'
+      }
+    ]
   }
 ];
 
