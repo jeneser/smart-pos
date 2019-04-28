@@ -69,12 +69,14 @@ const MaskContainer = styled(commonStyle.container)`
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
 
-  ${props => !props.isShow && css`
-    display: none;
-  `}
+  ${(props) =>
+    !props.isShow &&
+    css`
+      display: none;
+    `}
 `;
 
 const SidebarExpand = styled.div`
@@ -84,7 +86,7 @@ const SidebarExpand = styled.div`
   background-color: ${theme.p4};
 `;
 
-const UserBlock = styled(NavLink)`
+const UserBlock = styled.div`
   display: flex;
   align-items: center;
   padding: 0.2rem 0.24rem;
@@ -155,6 +157,23 @@ const NavText = styled.div`
   font-size: 0.18rem;
 `;
 
+const modalStyle = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+  },
+
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
+    background: 'none'
+  }
+};
+
 export {
   Sidebar,
   MenuItem,
@@ -168,34 +187,6 @@ export {
   UserDesc,
   NavItem,
   NavItemLink,
-  NavText
+  NavText,
+  modalStyle
 };
-
-// const Sidebar = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   width: 42%;
-//   height: 100vh;
-//   background-color: #3d454c;
-// `;
-
-// const RoleTag = styled.div`
-//   margin-right: 0.12rem;
-//   padding: 0.01rem 0.04rem;
-//   font-size: 0.18rem;
-//   color: #999;
-//   border: 0.01rem solid #ccc;
-// `;
-
-// export {
-//   // Sidebar
-//   // UserBlock,
-//   // Avatar,
-//   // UserInfo,
-//   // UserNick,
-//   // UserDesc,
-//   // RoleTag,
-//   // NavItem,
-//   // NavText
-// };

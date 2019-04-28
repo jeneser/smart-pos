@@ -4,7 +4,10 @@ import * as styled from './index.styled';
 
 import { mockOrderList, mockDiscountList } from '../common/mock/products';
 
-function SaleBlock() {
+/**
+ * @param  {{leftButton: JSX.Element}} {}
+ */
+function SaleBlock({ leftButton }) {
   const saleList = mockOrderList;
   const discountList = mockDiscountList;
 
@@ -12,7 +15,11 @@ function SaleBlock() {
     <styled.SaleBlock>
       {/* head */}
       <styled.Head>
-        <Icon name="icon_delete_black" width="0.22" height="0.22" />
+        {leftButton ? (
+          leftButton
+        ) : (
+          <Icon name="icon_delete_black" width="0.22" height="0.22" />
+        )}
         <styled.Title>账单</styled.Title>
         <Icon name="icon_more_black" width="0.22" height="0.22" />
       </styled.Head>

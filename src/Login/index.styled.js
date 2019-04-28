@@ -1,34 +1,49 @@
 import styled, { css } from 'styled-components';
 import Icon from '../common/components/Icon';
-
-// const Wrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// `;
+import theme from '../common/styles/theme';
 
 const LoginBox = styled.div`
+  background-color: #fff;
+  border-radius: 0.04rem;
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+`;
+
+const BoxHead = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  /* justify-content: center; */
-  margin: 0 auto;
-  width: 50%;
-  align-self: center;
+  height: 0.6rem;
+  padding: 0 0.24rem;
+  font-size: 0.18rem;
+  color: ${theme.p4};
+  border-bottom: 0.01rem solid ${theme.p5};
+`;
+
+const BoxBody = styled.div`
+  padding: 0.28rem 0.24rem;
+`;
+
+const InputLabel = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 0.54rem;
+  margin-bottom: 0.24rem;
 `;
 
 const Input = styled.input`
   display: flex;
   align-self: stretch;
   flex-grow: 1;
-  padding: 0.24rem 0.42rem 0.2rem 0.6rem;
-  font-size: 0.24rem;
+  padding: 0.1rem 0.2rem 0.1rem 0.42rem;
+  font-size: 0.16rem;
   outline: none;
   border: none;
-  border-bottom: 0.02rem solid #eee;
+  border: 0.01rem solid ${theme.p5};
+  border-radius: 0.04rem;
 
   ::placeholder {
-    color: #aaa;
+    color: ${theme.p5};
   }
 
   :-webkit-autofill,
@@ -37,31 +52,16 @@ const Input = styled.input`
   }
 `;
 
-const UsernameInput = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 0.9rem;
-  margin-bottom: 0.24rem;
-`;
-
-const PasswordInput = styled.div`
-  position: relative;
-  display: flex;
-  height: 0.9rem;
-  margin-bottom: 0.24rem;
-`;
-
 const EnhanceIcon = styled(Icon)`
   position: absolute;
   display: flex;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-51%);
 
   ${(props) =>
     props.left &&
     css`
-      left: 0;
+      left: 0.15rem;
     `}
 
   ${(props) =>
@@ -75,32 +75,24 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 0.8rem;
+  flex: 1;
+  height: 0.54rem;
   margin-top: 0.2rem;
-  color: #2997cc;
-  font-size: 0.26rem;
-  border: 0.01rem solid #2997cc;
+  color: ${theme.p4};
+  font-size: 0.18rem;
+  border: 0.01rem solid ${theme.p5};
+  border-radius: 0.04rem;
 
   :active {
-    color: #fff;
-    background-color: #2997cc;
+    opacity: 0.8;
   }
+
+  ${(props) =>
+    props.primary &&
+    css`
+      color: #fff;
+      background-color: ${theme.p2};
+    `}
 `;
 
-const TipText = styled.p`
-margin-top: 0.4rem;
-  font-size: 0.18rem;
-  color: #999;
-`;
-
-export {
-  // Wrapper,
-  LoginBox,
-  Input,
-  UsernameInput,
-  PasswordInput,
-  EnhanceIcon,
-  Button,
-  TipText
-};
+export { LoginBox, BoxHead, BoxBody, InputLabel, Input, EnhanceIcon, Button };

@@ -1,8 +1,12 @@
 import React, { Fragment, useState } from 'react';
+import Modal from 'react-modal';
+import Login from '../Login';
 import Icon from '../common/components/Icon';
 
 import theme from '../common/styles/theme';
 import * as styled from './index.styled';
+
+Modal.setAppElement('#root');
 
 const navConfig = [
   {
@@ -31,16 +35,14 @@ const activeStyle = {
   backgroundColor: theme.p2
 };
 
-const userAvatar =
-  'https://avatars2.githubusercontent.com/u/15034042?s=460&v=4';
-
 function Sidebar() {
-  const [isShowSidebar, setIsShowSidebar] = useState(false);
+  const [sidebarIsShow, setSidebarIsShow] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleShowSidebar = (e) => {
     if (e.target && e.target.id === 'jSidebarExpand') return;
 
-    setIsShowSidebar(!isShowSidebar);
+    setSidebarIsShow(!sidebarIsShow);
   };
 
   return (
@@ -74,12 +76,16 @@ function Sidebar() {
         </styled.MenuItem>
       </styled.Sidebar>
 
-      <styled.MaskContainer isShow={isShowSidebar} onClick={handleShowSidebar}>
+      <styled.MaskContainer isShow={sidebarIsShow} onClick={handleShowSidebar}>
         {/* SidebarExpand */}
         <styled.SidebarExpand id="jSidebarExpand">
           {/* UserBlock */}
-          <styled.UserBlock to="/login">
-            <styled.Avatar src={userAvatar} />
+          <styled.UserBlock onClick={() => setModalIsOpen(true)}>
+            <styled.Avatar
+              src={
+                'https://avatars2.githubusercontent.com/u/15034042?s=460&v=4'
+              }
+            />
             <styled.UserInfo>
               <styled.UserNick>Jeneser wg</styled.UserNick>
               <styled.UserDesc>导购人员</styled.UserDesc>
@@ -109,6 +115,20 @@ function Sidebar() {
           </styled.NavItem>
         </styled.SidebarExpand>
       </styled.MaskContainer>
+
+      <Modal
+        isOpen={modalIsOpen}
+        style={{ ...styled.modalStyle }}
+        onRequestClose={() => {
+          setModalIsOpen(false);
+        }}
+      >
+        <Login
+          handleClose={() => {
+            setModalIsOpen(false);
+          }}
+        />
+      </Modal>
     </Fragment>
   );
 }

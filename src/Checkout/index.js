@@ -2,15 +2,29 @@ import React from 'react';
 import Icon from '../common/components/Icon';
 
 import SaleBlock from '../SaleBlock';
+import { createBrowserHistory } from 'history';
 
 import * as styled from './index.styled';
+
+const history = createBrowserHistory();
 
 const mockQrImage = require('../common/images/mock_qrcode.png');
 
 function Checkout() {
   return (
     <styled.Checkout>
-      <SaleBlock />
+      <SaleBlock
+        leftButton={
+          <Icon
+            name="icon_left_black"
+            width="0.22"
+            height="0.22"
+            onClick={() => {
+              history.goBack();
+            }}
+          />
+        }
+      />
 
       <styled.Container>
         {/* head */}
@@ -20,7 +34,7 @@ function Checkout() {
 
         <styled.Body>
           <styled.Qrbox>
-          <styled.QrImage src={mockQrImage} />
+            <styled.QrImage src={mockQrImage} />
 
             <styled.MessageBox>
               <Icon name="icon_success_white" width="0.32" height="0.32" />

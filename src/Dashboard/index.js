@@ -2,26 +2,14 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import Login from '../Login';
-import Hangup from '../Hangup';
-import Analysis from '../Analysis';
-import Bills from '../Bills';
+// import Hangup from '../Hangup';
+// import Analysis from '../Analysis';
+// import Bills from '../Bills';
 
 const routeConfig = [
   {
     path: 'configuration',
     component: Login
-  },
-  {
-    path: 'hangup',
-    component: Hangup
-  },
-  {
-    path: 'analysis',
-    component: Analysis
-  },
-  {
-    path: 'bills',
-    component: Bills
   }
 ];
 
