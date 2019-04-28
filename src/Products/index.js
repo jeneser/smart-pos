@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '../common/components/Icon';
-import { Shelf } from '../Shelf/index.styled';
 import * as styled from './index.styled';
 
 import { mockOrderList } from '../common/mock/products';
@@ -9,34 +8,165 @@ function Products() {
   const productList = mockOrderList;
 
   return (
-    <Shelf>
-      <styled.Wrapper>
-        {/* SearchBar */}
-        <styled.SearchBar>
-          <styled.SearchInput placeholder="查询所有商品&优惠&折扣" autoFocus />
-          <styled.SearchIcon>
-            <Icon name="icon_search_white" width="0.32" height="0.32" />
-          </styled.SearchIcon>
-        </styled.SearchBar>
-        {/* product list */}
-        <styled.ProductList>
-          {productList.map((item, index) => {
-            return (
-              <styled.ListItem borderTop={index !== 0} key={item.itemId}>
-                <styled.Image src={item.itemPic} />
-
+    <styled.Products>
+      {/* head */}
+      <styled.Head>
+        <styled.Title>商品池</styled.Title>
+        <Icon name="icon_search_black" width="0.24" height="0.24" />
+      </styled.Head>
+      {/* Body */}
+      <styled.Body>
+        <styled.Row>
+          <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/TB2hmo_hrsrBKNjSZFpXXcXhFXa_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
                 <styled.ItemInfo>
-                  <styled.ItemTitle>{item.itemTitle}</styled.ItemTitle>
-                  <styled.ItemDesc>{item.itemDesc}</styled.ItemDesc>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
                 </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col>
 
-                <styled.ItemPrice>￥{item.itemPrice}</styled.ItemPrice>
-              </styled.ListItem>
-            );
-          })}
-        </styled.ProductList>
-      </styled.Wrapper>
-    </Shelf>
+          <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/O1CN01fGdj031ofSeiRRsLO_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
+                <styled.ItemInfo>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
+                </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col>
+        </styled.Row>
+
+        <styled.Row>
+          <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/TB2hmo_hrsrBKNjSZFpXXcXhFXa_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
+                <styled.ItemInfo>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
+                </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col>
+
+          <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/O1CN01fGdj031ofSeiRRsLO_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
+                <styled.ItemInfo>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
+                </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col>
+        </styled.Row>
+
+        <styled.Row>
+          <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/TB2hmo_hrsrBKNjSZFpXXcXhFXa_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
+                <styled.ItemInfo>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
+                </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col>
+
+          {/* <styled.Col>
+            <styled.Card>
+              <styled.Cover>
+                <styled.Image src="https://gd4.alicdn.com/imgextra/i4/1071005252/O1CN01fGdj031ofSeiRRsLO_!!1071005252.jpg" />
+              </styled.Cover>
+              <styled.CardBody>
+                <styled.ItemDesc>
+                  <styled.ItemTitle>韩版简约书包</styled.ItemTitle>
+                  <styled.ItemPrice>
+                    ￥85<styled.ItemOriginPrice>￥85</styled.ItemOriginPrice>
+                  </styled.ItemPrice>
+                </styled.ItemDesc>
+                <styled.ItemInfo>
+                  韩版简约高中少女旅行背包多功能大学生双肩包休闲纯色初中书包女
+                </styled.ItemInfo>
+                <styled.Tags>
+                  <styled.Tag>红色 96A</styled.Tag>
+                  <styled.Tag>当季新款</styled.Tag>
+                </styled.Tags>
+                <styled.AddButton>添加商品</styled.AddButton>
+              </styled.CardBody>
+            </styled.Card>
+          </styled.Col> */}
+        </styled.Row>
+      </styled.Body>
+    </styled.Products>
   );
 }
 

@@ -1,27 +1,23 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import SaleBlock from '../SaleBlock';
-import Products from '../Products';
-import Shelf from '../Shelf';
-import Calculator from '../Calculator';
+import Sidebar from '../Sidebar';
+import Cart from '../Cart';
+import Orders from '../Orders';
 
 import * as styled from './index.styled';
 
 const Home = ({ match }) => {
   return (
     <styled.Container>
-      {/* 推荐商品 */}
-      <Route path={`${match.url}/shelf/:shelfId`} exact component={Shelf} />
+      {/* Sidebar */}
+      <Sidebar />
 
-      {/* 商品列表 */}
-      <Route path={`${match.url}/products`} component={Products} />
+      {/* Cart */}
+      <Route path={`${match.url}/cart`} exact component={Cart} />
 
-      {/* 自定义账单 */}
-      <Route path={`${match.url}/calculator`} component={Calculator} />
-
-      {/* 订单 */}
-      <SaleBlock />
+      {/* Orders */}
+      <Route path={`${match.url}/orders`} exact component={Orders} />
     </styled.Container>
   );
 };

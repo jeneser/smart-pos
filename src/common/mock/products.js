@@ -139,67 +139,51 @@ export const mockDiscounts = [
 
 export const mockOrderList = [
   {
-    itemId: '12344565',
+    itemId: '12345442343565454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季棉麻外套夏季',
-    itemPrice: '200.00',
-    itemDesc: '红 165/96A'
-  },
-  {
-    itemId: '12345465',
-    itemPic:
-      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季棉麻外套夏季',
-    itemPrice: '200.00',
-    itemDesc: '红 165/96A'
-  },
-  {
-    itemId: '12345545676564',
-    itemPic:
-      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
-    itemDesc: '红 165/96A'
-  },
-  {
-    itemId: '15452345',
-    itemPic:
-      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
+    itemTitle: '棉麻外套夏季',
+    itemPrice: '200',
     itemDesc: '红 165/96A'
   },
   {
     itemId: '1234544234355454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
+    itemTitle: '棉麻外套夏季',
+    itemPrice: '200',
     itemDesc: '红 165/96A'
   },
   {
     itemId: '123452345777455454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
+    itemTitle: '棉麻外套外套夏季',
+    itemPrice: '567',
     itemDesc: '红 165/96A'
   },
   {
     itemId: '1234545433355454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
+    itemTitle: '棉麻外套套夏季',
+    itemPrice: '200',
     itemDesc: '红 165/96A'
   },
   {
     itemId: '12340987955454',
     itemPic:
       'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
-    itemTitle: '棉麻外套夏季v棉麻外套夏季',
-    itemPrice: '200.00',
+    itemTitle: '棉麻外套外套夏季',
+    itemPrice: '20',
+    itemDesc: '红 165/96A'
+  },
+  {
+    itemId: '1234098795655454',
+    itemPic:
+      'https://g-search3.alicdn.com/img/bao/uploaded/i4/i1/2049124912/TB2BbvhqCBYBeNjy0FeXXbnmFXa_!!2049124912.jpg_250x250.jpg',
+    itemTitle: '棉麻外套外套夏季',
+    itemPrice: '290',
     itemDesc: '红 165/96A'
   }
 ];

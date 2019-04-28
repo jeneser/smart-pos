@@ -1,47 +1,47 @@
 import React from 'react';
-import { Container, HeaderBar } from '../Analysis/index.styled';
+import Icon from '../common/components/Icon';
 
 import * as styled from './index.styled';
 
-function Login() {
+/**
+ * @param  {{handleClose: Function}} props
+ */
+function Login({ handleClose }) {
   return (
-    <Container>
-      <HeaderBar>用户登陆</HeaderBar>
-      <styled.LoginBox>
-        <styled.UsernameInput>
+    <styled.LoginBox>
+      <styled.BoxHead>
+        登陆
+        <Icon
+          name="icon_close_black"
+          width="0.20"
+          height="0.20"
+          onClick={handleClose}
+        />
+      </styled.BoxHead>
+      <styled.BoxBody>
+        <styled.InputLabel>
           <styled.EnhanceIcon
             name="icon_user_black"
-            width="0.32"
-            height="0.32"
+            width="0.20"
+            height="0.20"
             left
-          />
-          <styled.EnhanceIcon
-            name="icon_error_c_gray"
-            width="0.24"
-            height="0.24"
-            right
           />
           <styled.Input placeholder="输入用户名" />
-        </styled.UsernameInput>
-        <styled.PasswordInput>
+        </styled.InputLabel>
+
+        <styled.InputLabel>
           <styled.EnhanceIcon
             name="icon_password_black"
-            width="0.32"
-            height="0.32"
+            width="0.20"
+            height="0.20"
             left
           />
-          <styled.EnhanceIcon
-            name="icon_eye_gray"
-            width="0.30"
-            height="0.30"
-            right
-          />
           <styled.Input placeholder="输入密码" type="password" />
-        </styled.PasswordInput>
-        <styled.Button>立即登陆</styled.Button>
-        <styled.TipText>登陆遇到问题？</styled.TipText>
-      </styled.LoginBox>
-    </Container>
+        </styled.InputLabel>
+
+        <styled.Button primary>立即登陆</styled.Button>
+      </styled.BoxBody>
+    </styled.LoginBox>
   );
 }
 

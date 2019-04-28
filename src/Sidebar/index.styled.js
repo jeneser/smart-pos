@@ -1,23 +1,100 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import * as commonStyle from '../common/styles/common';
+import theme from '../common/styles/theme';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 42%;
+  position: relative;
+  width: 0.68rem;
   height: 100vh;
-  background-color: #3d454c;
+  font-size: 0.2rem;
+  border-right: 0.01rem solid ${theme.p5};
 `;
 
-const UserBlock = styled(NavLink)`
+const MenuItemBase = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.68rem;
+  height: 0.68rem;
+  text-decoration: none;
+
+  :active {
+    background-color: ${theme.p2};
+  }
+`;
+
+const MenuItem = styled.div`
+  ${MenuItemBase}
+
+  ${(props) =>
+    props.flexEnd &&
+    css`
+      padding: 0.15rem 0;
+      align-items: flex-end;
+    `}
+
+  ${(props) =>
+    props.height &&
+    css`
+      height: ${props.height}rem;
+    `}
+
+  ${(props) =>
+    props.bottomBorder &&
+    css`
+      border-bottom: 0.01rem solid ${theme.p5};
+    `}
+
+  ${(props) =>
+    props.bottomMargin &&
+    css`
+      margin-bottom: 0.5rem;
+    `}
+
+  ${(props) =>
+    props.bottom &&
+    css`
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    `}
+`;
+
+const MenuItemLink = styled(NavLink)`
+  ${MenuItemBase}
+`;
+
+const MaskContainer = styled(commonStyle.container)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+
+  ${(props) =>
+    !props.isShow &&
+    css`
+      display: none;
+    `}
+`;
+
+const SidebarExpand = styled.div`
+  position: relative;
+  width: 3rem;
+  height: 100vh;
+  background-color: ${theme.p4};
+`;
+
+const UserBlock = styled.div`
   display: flex;
   align-items: center;
-  height: 1.2rem;
-  padding: 0 0.24rem;
+  padding: 0.2rem 0.24rem;
+  margin-bottom: 0.2rem;
   color: #fff;
-  /* border-bottom: 0.01rem solid #ccc; */
   text-decoration: none;
+  border-bottom: 0.01rem solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
 
   :active {
     background-color: #2a2f33;
@@ -25,11 +102,11 @@ const UserBlock = styled(NavLink)`
 `;
 
 const Avatar = styled.img`
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.52rem;
+  height: 0.52rem;
   border-radius: 100%;
-  background-color: #ccc;
-  border: 0.01rem solid #ccc;
+  background-color: ${theme.p9};
+  border: 0.01rem solid ${theme.p5};
 `;
 
 const UserInfo = styled.div`
@@ -38,48 +115,78 @@ const UserInfo = styled.div`
 `;
 
 const UserNick = styled.div`
-  font-size: 0.24rem;
+  font-size: 0.18rem;
+  color: #fff;
 `;
 
 const UserDesc = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 0.1rem;
+  font-size: 0.13rem;
+  margin-top: 0.05rem;
+  color: ${theme.p5};
 `;
 
-const RoleTag = styled.div`
-  margin-right: 0.12rem;
-  padding: 0.01rem 0.04rem;
-  font-size: 0.18rem;
-  color: #999;
-  border: 0.01rem solid #ccc;
-`;
-
-const NavItem = styled(NavLink)`
+const NavItemBase = `
   display: flex;
   align-items: center;
-  height: 1rem;
-  padding: 0 0.4rem;
-  color: #fff;
-  /* border-bottom: 0.01rem solid #eee; */
+  height: 0.9rem;
+  padding: 0 0.34rem;
+  color: ${theme.p5};
   text-decoration: none;
+`;
+
+const NavItem = styled.div`
+  ${NavItemBase}
+
+  ${(props) =>
+    props.bottom &&
+    css`
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    `}
+`;
+
+const NavItemLink = styled(NavLink)`
+  ${NavItemBase}
 `;
 
 const NavText = styled.div`
   flex: 1;
-  margin-left: 0.24rem;
-  font-size: 0.2rem;
+  margin-left: 0.18rem;
+  font-size: 0.18rem;
 `;
+
+const modalStyle = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+  },
+
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
+    background: 'none'
+  }
+};
 
 export {
   Sidebar,
+  MenuItem,
+  MenuItemLink,
+  MaskContainer,
+  SidebarExpand,
   UserBlock,
   Avatar,
   UserInfo,
   UserNick,
   UserDesc,
-  RoleTag,
   NavItem,
-  NavText
+  NavItemLink,
+  NavText,
+  modalStyle
 };
