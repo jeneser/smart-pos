@@ -130,7 +130,7 @@ const NavItemBase = `
   align-items: center;
   height: 0.9rem;
   padding: 0 0.34rem;
-  color: #fff;
+  color: ${theme.p5};
   text-decoration: none;
 `;
 

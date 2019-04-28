@@ -25,7 +25,7 @@ const navConfig = [
     iconName: 'icon_analysis_gray'
   },
   {
-    path: '/configuration',
+    path: '/configure',
     name: '用户设置',
     iconName: 'icon_setting_gray'
   }
@@ -99,7 +99,8 @@ function Sidebar() {
               <styled.NavItemLink
                 to={item.path}
                 activeStyle={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.2)'
+                  backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                  color: '#fff'
                 }}
                 key={item.name}
               >
