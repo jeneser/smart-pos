@@ -22,6 +22,9 @@ const Title = styled.div`
 `;
 
 const Body = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
   height: 100vh;
   padding-bottom: 0.64rem;
   background-color: ${theme.p6};
@@ -33,21 +36,28 @@ const Body = styled.div`
 `;
 
 const Row = styled.div`
-  display: flex;
+  /* display: flex;
   height: 3.27rem;
-  border-bottom: 0.01rem solid ${theme.p5};
+  border-bottom: 0.01rem solid ${theme.p5}; */
 `;
 
 const Col = styled.div`
-  width: 2.875rem;
+  /* width: 2.875rem;
 
   :first-child {
     border-right: 0.01rem solid ${theme.p5};
-  }
+  } */
 `;
 
 const Card = styled.div`
+  width: 2.875rem;
+  height: 3.27rem;
   background-color: #fff;
+  border-bottom: 0.01rem solid ${theme.p5};
+
+  :nth-child(2n - 1) {
+    border-right: 0.01rem solid ${theme.p5};
+  }
 `;
 
 const Cover = styled.div`
