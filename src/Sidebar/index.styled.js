@@ -10,12 +10,21 @@ const Sidebar = styled.div`
   border-right: 0.01rem solid ${theme.p5};
 `;
 
-const MenuItem = styled.div`
+const MenuItemBase = `
   display: flex;
   justify-content: center;
   align-items: center;
   width: 0.68rem;
   height: 0.68rem;
+  text-decoration: none;
+
+  :active {
+    background-color: ${theme.p2};
+  }
+`;
+
+const MenuItem = styled.div`
+  ${MenuItemBase}
 
   ${(props) =>
     props.flexEnd &&
@@ -37,9 +46,9 @@ const MenuItem = styled.div`
     `}
 
   ${(props) =>
-    props.topMargin &&
+    props.bottomMargin &&
     css`
-      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
     `}
 
   ${(props) =>
@@ -49,13 +58,13 @@ const MenuItem = styled.div`
       bottom: 0;
       left: 0;
     `}
-
-  :active {
-    background-color: ${theme.p2};
-  }
 `;
 
-export { Sidebar, MenuItem };
+const MenuItemLink = styled(NavLink)`
+  ${MenuItemBase}
+`;
+
+export { Sidebar, MenuItem, MenuItemLink };
 
 // const Sidebar = styled.div`
 //   display: flex;

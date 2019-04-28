@@ -6,27 +6,26 @@ import * as styled from './index.styled';
 
 const navConfig = [
   {
-    path: 'analysis',
-    name: '报表分析',
-    iconName: 'icon_analysis_c_white'
+    path: '/checkout',
+    name: '结算收款',
+    iconName: 'icon_shopping_cart_gray'
   },
   {
-    path: 'hangup',
-    name: '挂起的账单',
-    iconName: 'icon_waitinvoice_white'
+    path: '/home/cart',
+    name: '当前账单',
+    iconName: 'icon_list_gray'
   },
   {
-    path: 'bills',
+    path: '/home/orders',
     name: '历史账单',
-    iconName: 'icon_historyorder_white'
+    iconName: 'icon_analysis_gray'
   },
   {
-    path: 'configuration',
+    path: '/configuration',
     name: '用户设置',
-    iconName: 'icon_config_white'
+    iconName: 'icon_setting_gray'
   }
 ];
-const baseUrl = '/dashboard';
 
 const activeStyle = {
   backgroundColor: theme.p2
@@ -35,34 +34,28 @@ const activeStyle = {
 const userAvatar =
   'https://avatars2.githubusercontent.com/u/15034042?s=460&v=4';
 
-/**
- * Sidebar
- * @param {{isShow: Boolean, handleSidebar: Function}} props
- */
-function Sidebar({ isShow, handleSidebar }) {
+function Sidebar() {
   return (
     <styled.Sidebar>
-      {/* <styled.MenuList> */}
-      <styled.MenuItem bottomBorder height="0.64" flexEnd>
+      <styled.MenuItem bottomBorder bottomMargin height="0.64" flexEnd>
         <Icon name="icon_menu_black" width="0.24" height="0.24" />
       </styled.MenuItem>
-      <styled.MenuItem topMargin>
-        <Icon name="icon_shopping_cart_gray" width="0.24" height="0.24" />
-      </styled.MenuItem>
 
-      <styled.MenuItem style={activeStyle}>
-        <Icon name="icon_list_gray" width="0.24" height="0.24" />
-      </styled.MenuItem>
-      <styled.MenuItem>
-        <Icon name="icon_analysis_gray" width="0.24" height="0.24" />
-      </styled.MenuItem>
-      <styled.MenuItem>
-        <Icon name="icon_setting_gray" width="0.24" height="0.24" />
-      </styled.MenuItem>
+      {navConfig.map((item) => {
+        return (
+          <styled.MenuItemLink
+            to={item.path}
+            activeStyle={activeStyle}
+            key={item.path}
+          >
+            <Icon name={item.iconName} width="0.24" height="0.24" />
+          </styled.MenuItemLink>
+        );
+      })}
+
       <styled.MenuItem bottom>
         <Icon name="icon_user_gray" width="0.24" height="0.24" />
       </styled.MenuItem>
-      {/* </styled.MenuList> */}
     </styled.Sidebar>
   );
 
