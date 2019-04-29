@@ -146,7 +146,9 @@ export const mockOrderList = [
     title: '古着感少女书包女韩版原宿ulzzang大学生森系百搭高中双肩包ins潮',
     itemPrice: '200',
     originalPrice: '310',
-    salePoints: ['女包', '当季新款']
+    salePoints: ['女包', '当季新款'],
+    itemSize: '96x96cm',
+    itemColor: '红色'
   },
   {
     itemId: '123454426564356884',
@@ -156,7 +158,9 @@ export const mockOrderList = [
     title: '百褶衬衫风琴褶雪纺春夏女装长袖同款宽松显瘦韩范灯笼袖飘带上衣',
     itemPrice: '90',
     originalPrice: '110',
-    salePoints: ['红 165/96A', '当季新款']
+    salePoints: ['红 165/96A', '当季新款'],
+    itemSize: '197/96A',
+    itemColor: '红色'
   },
   {
     itemId: '123454426569856544',
@@ -166,7 +170,9 @@ export const mockOrderList = [
     title: '条纹衬衫女春季2019新款韩版宽松衬衣设计感小众长袖上衣',
     itemPrice: '242',
     originalPrice: '340',
-    salePoints: ['2019新款', '当季新款']
+    salePoints: ['2019新款', '当季新款'],
+    itemSize: '197/96A',
+    itemColor: '红色'
   },
   {
     itemId: '123454426094356544',
@@ -176,7 +182,9 @@ export const mockOrderList = [
     title: '2019新款包头半拖鞋女绸缎面穆勒鞋低跟名媛凉拖皮带方扣气质女鞋',
     itemPrice: '320',
     originalPrice: '370',
-    salePoints: ['名媛凉拖', '2019新款']
+    salePoints: ['名媛凉拖', '2019新款'],
+    itemSize: '197/96A',
+    itemColor: '红色'
   },
   {
     itemId: '123454426094356344',
@@ -186,7 +194,9 @@ export const mockOrderList = [
     title: '大sim 夏装百搭3色毛边牛仔裤做旧高腰宽松韩版新款短裤热裤女潮',
     itemPrice: '48.6',
     originalPrice: '280.6',
-    salePoints: ['夏装百搭', '韩版新款']
+    salePoints: ['夏装百搭', '韩版新款'],
+    itemSize: '197/96A',
+    itemColor: '白色'
   },
   {
     itemId: '123454426434356344',
@@ -196,7 +206,9 @@ export const mockOrderList = [
     title: '彩虹短袖针织衫女2019春夏新款ulzzang韩版宽松横条纹打底衫T恤',
     itemPrice: '48.6',
     originalPrice: '280.6',
-    salePoints: ['2019春夏', '韩版新款']
+    salePoints: ['2019春夏', '韩版新款'],
+    itemSize: '197/96A',
+    itemColor: '红色'
   },
   {
     itemId: '123454400834356344',
@@ -206,7 +218,9 @@ export const mockOrderList = [
     title: '田小雨彩 虹鞋帆布鞋女2019春季新款学生复古百搭韩版ins高帮潮鞋',
     itemPrice: '48.6',
     originalPrice: '280.6',
-    salePoints: ['2019春夏', '复古百搭']
+    salePoints: ['2019春夏', '复古百搭'],
+    itemSize: '197/96A',
+    itemColor: '棕色'
   }
 ];
 

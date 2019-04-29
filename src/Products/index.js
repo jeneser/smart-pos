@@ -25,8 +25,6 @@ function Products() {
     fetchData();
   }, []);
 
-  console.log(productList);
-
   return (
     <styled.Products>
       {/* head */}
@@ -47,7 +45,7 @@ function Products() {
                 <styled.ItemDesc>
                   <styled.ItemTitle>{items.shortTitle}</styled.ItemTitle>
                   <styled.ItemPrice>
-                    {items.itemPrice}
+                    ￥{items.itemPrice}
                     <styled.ItemOriginPrice>
                       {items.originalPrice}
                     </styled.ItemOriginPrice>

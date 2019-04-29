@@ -60,7 +60,7 @@ const EnhanceIcon = styled(Icon)`
 `;
 
 const ProductList = styled.div`
-  height: 3.2rem;
+  max-height: 3.2rem;
   overflow-y: scroll;
   box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
   border-radius: 0.04rem;
@@ -209,6 +209,77 @@ const TextLabel = styled.div`
   font-size: 0.15rem;
 `;
 
+const CustomerList = styled.div`
+  width: 3.2rem;
+  height: 3.4rem;
+  padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+  background-color: #fff;
+  border-radius: 0.04rem;
+  box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const CustomerItem = styled.div`
+  display: flex;
+  align-items: center;
+  height: 0.64rem;
+  border-bottom: 0.01rem solid ${theme.p5};
+
+  :last-child {
+    border-bottom: none;
+  }
+
+  :active {
+    background-color: #f2f2f2;
+  }
+`;
+
+const Avatar = styled.div`
+  width: 0.44rem;
+  height: 0.44rem;
+  margin-right: 0.15rem;
+  border-radius: 100%;
+  background-color: ${theme.p9};
+`;
+
+const Desc = styled.div`
+  font-size: 0.15rem;
+  color: ${theme.p4};
+`;
+
+const Text = styled.div``;
+
+const CustomerInfo = styled.div`
+  margin-top: 0.02rem;
+  color: ${theme.p9};
+`;
+
+const Button = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0.38rem;
+  margin-bottom: 0.1rem;
+  font-size: 0.15rem;
+  color: #fff;
+  background-color: ${theme.p2};
+  border: 0.01rem solid ${theme.p5};
+  border-radius: 0.04rem;
+`;
+
+const Empty = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  font-size: 0.16rem;
+  color: ${theme.p5};
+`;
+
 export {
   SaleBlock,
   Head,
@@ -231,5 +302,13 @@ export {
   SettleItem,
   Image,
   Amount,
-  TextLabel
+  TextLabel,
+  CustomerList,
+  CustomerItem,
+  Avatar,
+  Desc,
+  Text,
+  CustomerInfo,
+  Button,
+  Empty
 };
