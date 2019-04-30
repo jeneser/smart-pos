@@ -88,6 +88,16 @@ const ListItem = styled.div`
   :not(:last-child) {
     border-bottom: none;
   }
+
+  :first-child {
+    border-top-left-radius: 0.04rem;
+    border-top-right-radius: 0.04rem;
+  }
+
+  :last-child {
+    border-bottom-left-radius: 0.04rem;
+    border-bottom-right-radius: 0.04rem;
+  }
 `;
 
 const Image = styled.img`
@@ -149,6 +159,28 @@ const ItemOriginPrice = styled(ItemPrice)`
   margin-top: 0.02rem;
   color: ${theme.p9};
   text-decoration: line-through;
+`;
+
+const ListItemWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 0.15rem;
+`;
+
+const DeleteButton = styled(Icon)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.64rem;
+  height: 100%;
+  background-color: red;
+  border-top-right-radius: 0.04rem;
+  border-bottom-right-radius: 0.04rem;
 `;
 
 const Settlement = styled.div`
@@ -291,12 +323,14 @@ export {
   ItemCount,
   ProductList,
   ListItem,
+  ListItemWrapper,
   ItemInfo,
   ItemTitle,
   ItemDesc,
   PriceWrapper,
   ItemOriginPrice,
   ItemPrice,
+  DeleteButton,
   Settlement,
   SettleList,
   SettleItem,

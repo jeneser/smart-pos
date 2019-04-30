@@ -4746,6 +4746,11 @@ immer@1.10.0:
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
+immer@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npm.taobao.org/immer/download/immer-3.1.1.tgz#eddd2c28403f494df604992c554eade8d9e5c2bb"
+  integrity sha1-7d0sKEA/SU32BJksVU6t6Nnlwrs=
+
 import-cwd@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"
@@ -6014,6 +6019,11 @@ lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
+
+lodash.find@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.npm.taobao.org/lodash.find/download/lodash.find-4.6.0.tgz#cb0704d47ab71789ffa0de8b97dd926fb88b13b1"
+  integrity sha1-ywcE1Hq3F4n/oN6Ll92Sb7iLE7E=
 
 lodash.findindex@^4.6.0:
   version "4.6.0"
@@ -8319,6 +8329,11 @@ recursive-readdir@2.2.2:
   integrity sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==
   dependencies:
     minimatch "3.0.4"
+
+reduce-reducers@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npm.taobao.org/reduce-reducers/download/reduce-reducers-1.0.1.tgz#00735ff3dce986511bc3b86b1cd544822ce6d713"
+  integrity sha1-AHNf89zphlEbw7hrHNVEgizm1xM=
 
 redux-devtools-extension@^2.13.8:
   version "2.13.8"
