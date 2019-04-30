@@ -118,10 +118,19 @@ const Qrbox = styled.div`
   box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
 `;
 
-const QrImage = styled.img`
+const QrImage = styled.div`
   width: 2rem;
   height: 2rem;
   margin: 0.32rem;
+  background-size: 2rem 2rem;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  ${(props) =>
+    props.source &&
+    css`
+      background-image: url(${props.source});
+    `}
 `;
 
 const MessageBox = styled.div`
