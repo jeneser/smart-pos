@@ -15,9 +15,9 @@ Modal.setAppElement('#root');
 
 /**
  * 顾客账单
- * @param  {{leftButton: JSX.Element}} {}
+ * @param  {{leftButton: JSX.Element, readonly: Boolean}} {}
  */
-function SaleBlock({ leftButton }) {
+function SaleBlock({ leftButton, readonly }) {
   // 模态框
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // 删除按钮
@@ -170,13 +170,15 @@ function SaleBlock({ leftButton }) {
             <styled.CustomerId>
               {currentCustomer.name ? `${currentCustomer.name}` : '添加账单'}
             </styled.CustomerId>
-            <styled.EnhanceIcon
-              name="icon_add_c_gray"
-              width="0.2"
-              height="0.2"
-              id="addButton"
-              onClick={addCustomer}
-            />
+            {!readonly && (
+              <styled.EnhanceIcon
+                name="icon_add_c_gray"
+                width="0.2"
+                height="0.2"
+                id="addButton"
+                onClick={addCustomer}
+              />
+            )}
           </styled.Customer>
 
           {/* ProductList */}
@@ -210,7 +212,7 @@ function SaleBlock({ leftButton }) {
                     </styled.PriceWrapper>
                   </styled.ListItemWrapper>
 
-                  {deleteBtnIsShow[item.idRorKey] && (
+                  {!readonly && deleteBtnIsShow[item.idRorKey] && (
                     <styled.DeleteButton
                       name="icon_delete_white"
                       width="0.2"
@@ -231,14 +233,16 @@ function SaleBlock({ leftButton }) {
           <styled.Settlement>
             {/* SettleList */}
             <styled.SettleList>
-              <styled.SettleItem primary>
-                <styled.TextLabel>添加优惠折扣</styled.TextLabel>
-                <styled.EnhanceIcon
-                  name="icon_add_c_gray"
-                  width="0.2"
-                  height="0.2"
-                />
-              </styled.SettleItem>
+              {!readonly && (
+                <styled.SettleItem primary>
+                  <styled.TextLabel>添加优惠折扣</styled.TextLabel>
+                  <styled.EnhanceIcon
+                    name="icon_add_c_gray"
+                    width="0.2"
+                    height="0.2"
+                  />
+                </styled.SettleItem>
+              )}
               <styled.SettleItem>
                 <styled.TextLabel>总优惠</styled.TextLabel>-{discountAmount}
               </styled.SettleItem>
@@ -264,7 +268,9 @@ function SaleBlock({ leftButton }) {
         }}
       >
         <styled.CustomerList>
-          <styled.Button onClick={addCustomer}>快速新建账单</styled.Button>
+          {!readonly && (
+            <styled.Button onClick={addCustomer}>快速新建账单</styled.Button>
+          )}
 
           {customerList.map((item) => {
             return (

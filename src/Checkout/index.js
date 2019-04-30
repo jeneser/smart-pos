@@ -71,7 +71,6 @@ function Checkout() {
     const params = {
       items: concatProductItems(cartItems)
     };
-    console.log(JSON.stringify(params));
 
     const fetchOrderUrl = async () => {
       const result = await 'https://www.pos.jeneser.wang/orders/10000009678966567';
@@ -109,6 +108,7 @@ function Checkout() {
   return (
     <styled.Checkout>
       <SaleBlock
+        readonly
         leftButton={
           <Icon
             name="icon_left_black"

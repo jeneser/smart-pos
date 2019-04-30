@@ -191,7 +191,7 @@ const Settlement = styled.div`
 `;
 
 const SettleList = styled.div`
-  height: 1.44rem;
+  max-height: 1.92rem;
   box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
   border-radius: 0.04rem;
 `;
@@ -213,6 +213,16 @@ const SettleItem = styled.div`
 
   :not(:last-child) {
     border-bottom: none;
+  }
+
+  :first-child {
+    border-top-left-radius: 0.04rem;
+    border-top-right-radius: 0.04rem;
+  }
+
+  :last-child {
+    border-bottom-left-radius: 0.04rem;
+    border-bottom-right-radius: 0.04rem;
   }
 
   ${(props) =>
