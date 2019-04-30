@@ -51,6 +51,7 @@ const Foot = styled.div`
 `;
 
 const Row = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
 
@@ -71,7 +72,7 @@ const Button = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0.4rem;
+  padding: 0 0.48rem;
   margin: 0 0.2rem;
   height: 0.48rem;
   min-width: 1.8rem;
@@ -116,6 +117,10 @@ const Qrbox = styled.div`
   border: 0.01rem solid ${theme.p5};
   border-radius: 0.06rem;
   box-shadow: 0.01rem 0.01rem 0.05rem rgba(0, 0, 0, 0.1);
+
+  ${props => props.readonly && css`
+    opacity: 0.5;
+  `}
 `;
 
 const QrImage = styled.div`
@@ -143,8 +148,79 @@ const MessageBox = styled.div`
   color: #fff;
   background-color: ${theme.b1};
 `;
+
 const Tips = styled.div`
   margin-left: 0.1rem;
+`;
+
+const PayMethods = styled.div`
+  position: absolute;
+  top: -2.3rem;
+  left: 0.4rem;
+  border: 0.01rem solid ${theme.p5};
+  font-size: 0.2rem;
+  background-color: #fff;
+  border-radius: 0.04rem;
+  box-shadow: 0.02rem 0.02rem 0.1rem rgba(0, 0, 0, 0.1);
+
+  ::before,
+  ::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+  }
+
+  ::before {
+    border: 0.13rem solid transparent;
+    border-top-color: #fff;
+    left: 50%;
+    margin-left: -0.13rem;
+  }
+
+  ::after {
+    border: 0.14rem solid transparent;
+    border-top-color: ${theme.p5};
+    left: 50%;
+    margin-left: -0.14rem;
+    z-index: -1;
+  }
+`;
+
+const PayMethodsHead = styled(Head)`
+  align-items: center;
+  justify-content: center;
+  height: 0.52rem;
+  font-size: 0.17rem;
+`;
+
+const PayMethodsBody = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.24rem 0.2rem;
+`;
+
+const PayMethodsItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 1rem;
+  width: 1rem;
+  padding: 0.15rem 0;
+  border: 0.01rem solid ${theme.p5};
+  border-radius: 0.04rem;
+  font-size: 0.14rem;
+
+  :nth-child(2n - 1) {
+    margin-right: 0.2rem;
+  }
+
+  ${(props) =>
+    props.actived &&
+    css`
+      background-color: rgba(0, 207, 63, 0.1);
+      border-color: ${theme.b1};
+    `}
 `;
 
 export {
@@ -162,5 +238,9 @@ export {
   Col,
   Button,
   TextLabel,
-  TextValue
+  TextValue,
+  PayMethods,
+  PayMethodsHead,
+  PayMethodsBody,
+  PayMethodsItem
 };

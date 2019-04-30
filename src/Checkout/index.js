@@ -11,6 +11,19 @@ import * as styled from './index.styled';
 
 const history = createBrowserHistory();
 
+const payMethods = [
+  {
+    icon: 'icon_alipay_gray',
+    text: '支付宝',
+    id: 'alipay'
+  },
+  {
+    icon: 'icon_cash_gray',
+    text: '现金支付',
+    id: 'cash'
+  }
+];
+
 const mockQrImage = require('../common/images/mock_qrcode.png');
 
 /**
@@ -19,6 +32,8 @@ const mockQrImage = require('../common/images/mock_qrcode.png');
 function Checkout() {
   const [orderUrl, setOrderUrl] = useState('');
   const [orderQrImage, setOrderQrImage] = useState('');
+  const [payMethodsIsShow, setPayMethodsIsShow] = useState(false);
+  const [payMethod, setPayMethod] = useState('alipay');
 
   // map state
   const {
@@ -129,7 +144,7 @@ function Checkout() {
 
         {/* Body */}
         <styled.Body>
-          <styled.Qrbox>
+          <styled.Qrbox readonly={payMethod !== 'alipay'}>
             <styled.QrImage source={orderQrImage} />
 
             <styled.MessageBox>
@@ -152,8 +167,35 @@ function Checkout() {
             </styled.Col>
           </styled.Row>
           <styled.Row>
-            <styled.Button>支付方式</styled.Button>
+            <styled.Button
+              onClick={() => setPayMethodsIsShow(!payMethodsIsShow)}
+            >
+              更换支付方式
+            </styled.Button>
             <styled.Button primary>完成支付</styled.Button>
+
+            {payMethodsIsShow && (
+              <styled.PayMethods>
+                <styled.PayMethodsHead>支付方式</styled.PayMethodsHead>
+                <styled.PayMethodsBody>
+                  {payMethods.map((item) => {
+                    return (
+                      <styled.PayMethodsItem
+                        key={item.id}
+                        actived={payMethod === item.id}
+                        onClick={() => {
+                          setPayMethod(item.id);
+                          setPayMethodsIsShow(!payMethodsIsShow);
+                        }}
+                      >
+                        <Icon name={item.icon} width="0.42" height="0.42" />
+                        {item.text}
+                      </styled.PayMethodsItem>
+                    );
+                  })}
+                </styled.PayMethodsBody>
+              </styled.PayMethods>
+            )}
           </styled.Row>
         </styled.Foot>
       </styled.Container>
