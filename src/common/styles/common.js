@@ -11,4 +11,21 @@ const container = styled.div`
   }
 `;
 
-export { container };
+const modalStyle = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)'
+  },
+
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
+    background: 'none'
+  }
+};
+
+export { container, modalStyle };
