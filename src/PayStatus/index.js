@@ -1,12 +1,16 @@
 import React, { useCallback } from 'react';
-import { useDispatch, useMappedState } from 'redux-react-hook';
+import { useDispatch } from 'redux-react-hook';
 import uuidv1 from 'uuid/v1';
 import moment from 'moment';
+
 import Icon from '../common/components/Icon';
 
 import * as actionTypes from '../common/store/actionTypes';
 import * as styled from './index.styled';
 
+/**
+ * 支付状态
+ */
 function PayStatus({ history }) {
   // actions
   const dispatch = useDispatch();

@@ -1,40 +1,22 @@
 import React, { Fragment, useState } from 'react';
 import Modal from 'react-modal';
+
 import Login from '../Login';
 import Icon from '../common/components/Icon';
-
 import theme from '../common/styles/theme';
+
+import * as constants from '../common/constants';
 import * as styled from './index.styled';
 
 Modal.setAppElement('#root');
-
-const navConfig = [
-  {
-    path: '/checkout',
-    name: '结算收款',
-    iconName: 'icon_shopping_cart_gray'
-  },
-  {
-    path: '/home/cart',
-    name: '当前账单',
-    iconName: 'icon_list_gray'
-  },
-  {
-    path: '/home/orders',
-    name: '历史账单',
-    iconName: 'icon_analysis_gray'
-  },
-  {
-    path: '/configure',
-    name: '用户设置',
-    iconName: 'icon_setting_gray'
-  }
-];
 
 const activeStyle = {
   backgroundColor: theme.p2
 };
 
+/**
+ * 侧边导航
+ */
 function Sidebar() {
   const [sidebarIsShow, setSidebarIsShow] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -59,7 +41,7 @@ function Sidebar() {
           <Icon name="icon_menu_black" width="0.24" height="0.24" />
         </styled.MenuItem>
 
-        {navConfig.map((item) => {
+        {constants.navConfig.map((item) => {
           return (
             <styled.MenuItemLink
               to={item.path}
@@ -94,7 +76,7 @@ function Sidebar() {
           </styled.UserBlock>
 
           {/* NavItem */}
-          {navConfig.map((item) => {
+          {constants.navConfig.map((item) => {
             return (
               <styled.NavItemLink
                 to={item.path}

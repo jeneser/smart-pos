@@ -7,6 +7,10 @@ import Orders from '../Orders';
 
 import * as styled from './index.styled';
 
+/**
+ * 首页
+ * @param {*} param0 props
+ */
 const Home = ({ match }) => {
   return (
     <styled.Container>

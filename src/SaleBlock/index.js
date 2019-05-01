@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useCallback, useEffect } from 'react';
+import React, { Fragment, useState, useCallback } from 'react';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import Modal from 'react-modal';
 import get from 'lodash.get';

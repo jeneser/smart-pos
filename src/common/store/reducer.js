@@ -40,6 +40,8 @@ export const customerReducer = (state = [], action) =>
         index !== -1 && draft.splice(index, 1);
         break;
       }
+
+      default:;
     }
   });
 
@@ -93,6 +95,8 @@ export const cartReducer = (state = {}, action) =>
         index !== -1 && draft[customerId].items.splice(index, 1);
         break;
       }
+
+      default:;
     }
   });
 

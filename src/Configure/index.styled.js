@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import theme from '../common/styles/theme';
 import * as commonStyle from '../common/styles/common';
 

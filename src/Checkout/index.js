@@ -1,34 +1,24 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useMappedState } from 'redux-react-hook';
+import { useMappedState } from 'redux-react-hook';
 import qrcode from 'qrcode';
 import get from 'lodash.get';
 import find from 'lodash.find';
+
 import Icon from '../common/components/Icon';
 import SaleBlock from '../SaleBlock';
 
+import * as constants from '../common/constants';
 import * as styled from './index.styled';
-
-const payMethods = [
-  {
-    icon: 'icon_alipay_gray',
-    text: '支付宝',
-    id: 'alipay'
-  },
-  {
-    icon: 'icon_cash_gray',
-    text: '现金支付',
-    id: 'cash'
-  }
-];
-
-const mockQrImage = require('../common/images/mock_qrcode.png');
 
 /**
  * 结算
  */
 function Checkout({ history }) {
+  // 支付链接
   const [orderUrl, setOrderUrl] = useState('');
+  // 支付二维码
   const [orderQrImage, setOrderQrImage] = useState('');
+  // 支付方式
   const [payMethodsIsShow, setPayMethodsIsShow] = useState(false);
   const [payMethod, setPayMethod] = useState('alipay');
 
@@ -92,7 +82,8 @@ function Checkout({ history }) {
       try {
         setOrderQrImage(await qrcode.toDataURL(result, { margin: 0 }));
       } catch (err) {
-        console.error(err);
+        // debug, TODO: remove it
+        console.error(err, params, orderUrl, customerList, currentCustomer, currentCustomerId);
       }
     };
 
@@ -184,7 +175,7 @@ function Checkout({ history }) {
               <styled.PayMethods>
                 <styled.PayMethodsHead>支付方式</styled.PayMethodsHead>
                 <styled.PayMethodsBody>
-                  {payMethods.map((item) => {
+                  {constants.payMethods.map((item) => {
                     return (
                       <styled.PayMethodsItem
                         key={item.id}

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import Icon from '../common/components/Icon';
 import theme from '../common/styles/theme';
 
 const Checkout = styled.div`
