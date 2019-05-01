@@ -5,11 +5,8 @@ import get from 'lodash.get';
 import find from 'lodash.find';
 import Icon from '../common/components/Icon';
 import SaleBlock from '../SaleBlock';
-import { createBrowserHistory } from 'history';
 
 import * as styled from './index.styled';
-
-const history = createBrowserHistory();
 
 const payMethods = [
   {
@@ -29,7 +26,7 @@ const mockQrImage = require('../common/images/mock_qrcode.png');
 /**
  * 结算
  */
-function Checkout() {
+function Checkout({ history }) {
   const [orderUrl, setOrderUrl] = useState('');
   const [orderQrImage, setOrderQrImage] = useState('');
   const [payMethodsIsShow, setPayMethodsIsShow] = useState(false);
@@ -102,6 +99,13 @@ function Checkout() {
     fetchOrderUrl();
   }, [cartItems]);
 
+  /**
+   * 手动触发支付完成
+   */
+  const handleCompletePay = () => {
+    history.push('/paystatus');
+  };
+
   // 自定义税率，应从服务器获取，这里固定为 0
   const taxRate = 0;
   // 总折扣
@@ -172,7 +176,9 @@ function Checkout() {
             >
               更换支付方式
             </styled.Button>
-            <styled.Button primary>完成支付</styled.Button>
+            <styled.Button primary onClick={handleCompletePay}>
+              完成支付
+            </styled.Button>
 
             {payMethodsIsShow && (
               <styled.PayMethods>

@@ -8363,11 +8363,6 @@ recursive-readdir@2.2.2:
   dependencies:
     minimatch "3.0.4"
 
-reduce-reducers@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/reduce-reducers/download/reduce-reducers-1.0.1.tgz#00735ff3dce986511bc3b86b1cd544822ce6d713"
-  integrity sha1-AHNf89zphlEbw7hrHNVEgizm1xM=
-
 redux-devtools-extension@^2.13.8:
   version "2.13.8"
   resolved "https://registry.npm.taobao.org/redux-devtools-extension/download/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Home from '../Home';
 import Checkout from '../Checkout';
 import Configure from '../Configure';
+import PayStatus from '../PayStatus';
 
 import * as styled from './index.styled';
 
@@ -23,6 +24,9 @@ function App() {
 
         {/* Checkout */}
         <Route path="/checkout" component={Checkout} />
+
+        {/* PayStatus */}
+        <Route path="/paystatus" component={PayStatus} />
 
         {/* Configure */}
         <Route path="/configure" component={Configure} />

@@ -1,12 +1,9 @@
 import React from 'react';
 import Icon from '../common/components/Icon';
-import { createBrowserHistory } from 'history';
 
 import * as styled from './index.styled';
 
-const history = createBrowserHistory();
-
-function Configure() {
+function Configure({ history }) {
   return (
     <styled.Configure>
       <styled.Aside>
