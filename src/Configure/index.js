@@ -3,6 +3,9 @@ import Icon from '../common/components/Icon';
 
 import * as styled from './index.styled';
 
+/**
+ * 应用设置
+ */
 function Configure({ history }) {
   return (
     <styled.Configure>

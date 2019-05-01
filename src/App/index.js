@@ -8,10 +8,16 @@ import PayStatus from '../PayStatus';
 
 import * as styled from './index.styled';
 
+/**
+ * redirect to home
+ */
 function RedirectToHome() {
   return <Redirect to="/home/cart" />;
 }
 
+/**
+ * App
+ */
 function App() {
   return (
     <Router>

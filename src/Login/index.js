@@ -4,6 +4,7 @@ import Icon from '../common/components/Icon';
 import * as styled from './index.styled';
 
 /**
+ * 用户登陆
  * @param  {{handleClose: Function}} props
  */
 function Login({ handleClose }) {

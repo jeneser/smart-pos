@@ -4,8 +4,11 @@ import Icon from '../common/components/Icon';
 import * as styled from './index.styled';
 
 import { mockBills } from '../common/mock/bills';
-import { mockOrderList, mockDiscountList } from '../common/mock/products';
+import { mockOrderList } from '../common/mock/products';
 
+/**
+ * 历史账单
+ */
 function Orders() {
   const orderList = mockBills;
   const saleList = mockOrderList;
