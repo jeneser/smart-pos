@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from '../styles/theme';
 import { ToastContainer } from 'react-toastify';
 
 const Toastify = styled(ToastContainer)`

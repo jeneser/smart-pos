@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 /**
  * Toast Container
  */
-function ToastContainer() {
+function ToastContainer(props) {
   return (
     <styled.Toastify
       position="top-center"
@@ -19,6 +19,7 @@ function ToastContainer() {
       pauseOnVisibilityChange
       draggable
       pauseOnHover
+      {...props}
     />
   );
 }

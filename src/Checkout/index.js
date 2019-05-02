@@ -27,8 +27,7 @@ function Checkout({ history }) {
     customerList,
     currentCustomer,
     currentCustomerId,
-    cartItems,
-    discounts
+    cartItems
   } = useMappedState(
     useCallback((state) => {
       const customerList = get(state, 'customer', []);
@@ -41,15 +40,12 @@ function Checkout({ history }) {
       const currentCart = get(state, `cart[${currentCustomerId}]`, {});
       // 商品
       const cartItems = get(currentCart, 'items', []);
-      // 折扣
-      const discounts = get(currentCart, 'discounts', []);
 
       return {
         customerList,
         currentCustomer,
         currentCustomerId,
-        cartItems,
-        discounts
+        cartItems
       };
     }, [])
   );
@@ -83,7 +79,14 @@ function Checkout({ history }) {
         setOrderQrImage(await qrcode.toDataURL(result, { margin: 0 }));
       } catch (err) {
         // debug, TODO: remove it
-        console.error(err, params, orderUrl, customerList, currentCustomer, currentCustomerId);
+        console.error(
+          err,
+          params,
+          orderUrl,
+          customerList,
+          currentCustomer,
+          currentCustomerId
+        );
       }
     };
 
@@ -99,19 +102,32 @@ function Checkout({ history }) {
 
   // 自定义税率，应从服务器获取，这里固定为 0
   const taxRate = 0;
-  // 总折扣
-  const discountAmount = discounts.reduce(
-    (acc, cur) => acc + parseFloat(cur.amount || 0),
-    0
-  );
+
   // 总金额
-  const amount = cartItems.reduce(
-    (acc, cur) => acc + parseFloat(cur.itemPrice || 0, 2),
-    0
-  );
+  const amount = cartItems.reduce((acc, cur) => {
+    if (cur.itemType === 'item') return acc + parseFloat(cur.itemPrice || 0, 2);
+    return 0;
+  }, 0);
+
+  // 总折扣
+  const discountAmount = cartItems
+    .map((item) => {
+      if (item.itemType !== 'gift') return 0;
+
+      if (item.itemPrice) return parseFloat(item.itemPrice);
+
+      if (item.discountRate) return amount * parseFloat(1 - item.discountRate);
+
+      return 0;
+    })
+    .reduce((acc, cur) => acc + cur, 0)
+    .toFixed(2);
+
   // 实际金额 realAmount = (amount - discountAmount) * (1 - taxRate)
   const realAmount = (
-    (amount - discountAmount >= 0 ? amount - discountAmount : 0) *
+    (parseFloat(amount) - parseFloat(discountAmount) >= 0
+      ? parseFloat(amount) - parseFloat(discountAmount)
+      : 0) *
     (1 - taxRate)
   ).toFixed(2);
 
