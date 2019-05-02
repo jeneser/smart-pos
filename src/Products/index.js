@@ -21,15 +21,17 @@ function Products() {
   const [queryItemId, setQueryItemId] = useState('');
 
   // map state
-  const { currentCustomerId } = useMappedState(
+  const { currentCustomerId, giftsIsShow } = useMappedState(
     useCallback((state) => {
       const customerList = get(state, 'customer', []);
       // 当前顾客
       const currentCustomer = find(customerList, ['isCurrent', true]) || {};
       // 当前顾客 ID
       const currentCustomerId = get(currentCustomer, 'id', '');
+      // 展示礼品卡
+      const giftsIsShow = get(state, 'gift.isShow', false);
 
-      return { currentCustomerId };
+      return { currentCustomerId, giftsIsShow };
     }, [])
   );
 
@@ -39,12 +41,14 @@ function Products() {
      */
     const fetchData = async () => {
       try {
-        setProductList((await request({ url: '/products' })) || []);
+        const url = giftsIsShow ? `/gifts` : `/products`;
+
+        setProductList((await request({ url })) || []);
       } catch (e) {}
     };
 
     fetchData();
-  }, []);
+  }, [giftsIsShow]);
 
   // actions
   const dispatch = useDispatch();
@@ -72,9 +76,11 @@ function Products() {
   const querySingleProduct = useCallback(() => {
     const fetchData = async () => {
       try {
-        setProductList(
-          (await request({ url: `/products/${queryItemId}` })) || []
-        );
+        const url = giftsIsShow
+          ? `/gifts/${queryItemId}`
+          : `/products/${queryItemId}`;
+
+        setProductList((await request({ url })) || []);
       } catch (e) {
         toast.warn('商品不存在！');
       }
@@ -84,7 +90,7 @@ function Products() {
 
     setSearchBarIsShow(false);
     setQueryItemId('');
-  }, [queryItemId]);
+  }, [queryItemId, giftsIsShow]);
 
   return (
     <styled.Products>
@@ -94,6 +100,7 @@ function Products() {
           <styled.searchBar>
             <styled.searchInput
               value={queryItemId}
+              autoFocus
               placeholder="输入商品id"
               onChange={(e) => setQueryItemId(e.target.value)}
             />
@@ -103,7 +110,7 @@ function Products() {
           </styled.searchBar>
         ) : (
           <Fragment>
-            <styled.Title>商品池</styled.Title>
+            <styled.Title>{giftsIsShow ? '礼品卡' : '商品池'}</styled.Title>
             <Icon
               name="icon_search_black"
               width="0.24"
@@ -126,7 +133,7 @@ function Products() {
                 <styled.ItemDesc>
                   <styled.ItemTitle>{item.shortTitle}</styled.ItemTitle>
                   <styled.ItemPrice>
-                    ￥{item.itemPrice}
+                    {item.itemPrice ? `￥${item.itemPrice}` : ''}
                     <styled.ItemOriginPrice>
                       {item.originalPrice}
                     </styled.ItemOriginPrice>

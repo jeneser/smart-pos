@@ -29,7 +29,8 @@ function SaleBlock({ leftButton, readonly }) {
     currentCustomer,
     currentCustomerId,
     cartItems,
-    discounts
+    discounts,
+    giftsIsShow
   } = useMappedState(
     useCallback((state) => {
       const customerList = get(state, 'customer', []);
@@ -44,13 +45,16 @@ function SaleBlock({ leftButton, readonly }) {
       const cartItems = get(currentCart, 'items', []);
       // 折扣
       const discounts = get(currentCart, 'discounts', []);
+      // 展示礼品卡
+      const giftsIsShow = get(state, 'gift.isShow', false);
 
       return {
         customerList,
         currentCustomer,
         currentCustomerId,
         cartItems,
-        discounts
+        discounts,
+        giftsIsShow
       };
     }, [])
   );
@@ -120,18 +124,31 @@ function SaleBlock({ leftButton, readonly }) {
       });
   }, [currentCustomerId]);
 
+  /**
+   * 添加优惠折扣
+   */
+  const handleGiftsShow = useCallback(() => {
+    dispatch({
+      type: actionTypes.HANDLE_GIFTS_SHOW,
+      payload: !giftsIsShow
+    });
+  });
+
   // 自定义税率，应从服务器获取，这里固定为 0
   const taxRate = 0;
   // 总折扣
-  const discountAmount = discounts.reduce(
-    (acc, cur) => acc + parseFloat(cur.amount || 0),
-    0
-  );
+  const discountAmount = cartItems.reduce((acc, cur) => {
+    if (cur.itemType === 'gift') {
+      return acc + parseFloat(cur.amount || 0);
+    }
+
+    return 0;
+  }, 0);
   // 总金额
-  const amount = cartItems.reduce(
-    (acc, cur) => acc + parseFloat(cur.itemPrice || 0, 2),
-    0
-  );
+  const amount = cartItems.reduce((acc, cur) => {
+    if (cur.itemType === 'item') return acc + parseFloat(cur.itemPrice || 0, 2);
+    return 0;
+  }, 0);
   // 实际金额 realAmount = (amount - discountAmount) * (1 - taxRate)
   const realAmount = (
     (amount - discountAmount >= 0 ? amount - discountAmount : 0) *
@@ -198,14 +215,17 @@ function SaleBlock({ leftButton, readonly }) {
                     <styled.ItemInfo>
                       <styled.ItemTitle>{item.shortTitle}</styled.ItemTitle>
                       <styled.ItemDesc>
-                        {item.itemSize} {item.itemColor}
+                        {item.itemSize} {item.itemColor}{' '}
+                        {item.discountRate && `折扣率 ${item.discountRate}`}
                       </styled.ItemDesc>
                     </styled.ItemInfo>
                     {/* ItemCount */}
                     {/* <styled.ItemCount>2</styled.ItemCount> */}
                     {/* PriceWrapper */}
                     <styled.PriceWrapper>
-                      <styled.ItemPrice>￥{item.itemPrice}</styled.ItemPrice>
+                      <styled.ItemPrice>
+                        {item.itemPrice && `￥${item.itemPrice}`}
+                      </styled.ItemPrice>
                       <styled.ItemOriginPrice>
                         {item.originalPrice}
                       </styled.ItemOriginPrice>
@@ -234,10 +254,12 @@ function SaleBlock({ leftButton, readonly }) {
             {/* SettleList */}
             <styled.SettleList>
               {!readonly && (
-                <styled.SettleItem primary>
-                  <styled.TextLabel>添加优惠折扣</styled.TextLabel>
+                <styled.SettleItem primary onClick={handleGiftsShow}>
+                  <styled.TextLabel>
+                    {giftsIsShow ? '请确认添加完成' : '添加优惠折扣'}
+                  </styled.TextLabel>
                   <styled.EnhanceIcon
-                    name="icon_add_c_gray"
+                    name={giftsIsShow ? 'icon_edit_gray' : 'icon_add_c_gray'}
                     width="0.2"
                     height="0.2"
                   />

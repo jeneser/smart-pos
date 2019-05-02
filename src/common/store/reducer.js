@@ -41,7 +41,7 @@ export const customerReducer = (state = [], action) =>
         break;
       }
 
-      default:;
+      default:
     }
   });
 
@@ -96,14 +96,35 @@ export const cartReducer = (state = {}, action) =>
         break;
       }
 
-      default:;
+      default:
+    }
+  });
+
+/**
+ * gifts reducer
+ * @param {Array} state
+ * @param {Object} action
+ */
+export const giftsReducer = (state = {}, action) =>
+  produce(state, (draft) => {
+    switch (action.type) {
+      /**
+       * 添加优惠操作
+       */
+      case actionTypes.HANDLE_GIFTS_SHOW: {
+        draft.isShow = action.payload;
+        break;
+      }
+
+      default:
     }
   });
 
 // root reducer
 const rootReducer = combineReducers({
   customer: customerReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  gift: giftsReducer
 });
 
 export default rootReducer;
