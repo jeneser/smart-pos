@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import get from 'lodash.get';
 import find from 'lodash.find';
@@ -14,6 +14,10 @@ import * as styled from './index.styled';
 function Products() {
   // 商品列表
   const [productList, setProductList] = useState([]);
+  // 搜索框
+  const [searchBarIsShow, setSearchBarIsShow] = useState(false);
+  // 查询 id
+  const [queryItemId, setQueryItemId] = useState('');
 
   // map state
   const { currentCustomerId } = useMappedState(
@@ -61,12 +65,49 @@ function Products() {
       });
   };
 
+  /**
+   * 查询单个商品
+   */
+  const querySingleProduct = useCallback(() => {
+    const fetchData = async () => {
+      try {
+        setProductList(
+          (await request({ url: `/products/${queryItemId}` })) || []
+        );
+      } catch (e) {}
+    };
+
+    fetchData();
+
+    setSearchBarIsShow(false);
+  }, [queryItemId]);
+
   return (
     <styled.Products>
       {/* head */}
       <styled.Head>
-        <styled.Title>商品池</styled.Title>
-        <Icon name="icon_search_black" width="0.24" height="0.24" />
+        {searchBarIsShow ? (
+          <styled.searchBar>
+            <styled.searchInput
+              value={queryItemId}
+              placeholder="输入商品id"
+              onChange={(e) => setQueryItemId(e.target.value)}
+            />
+            <styled.searchButton onClick={querySingleProduct}>
+              查询
+            </styled.searchButton>
+          </styled.searchBar>
+        ) : (
+          <Fragment>
+            <styled.Title>商品池</styled.Title>
+            <Icon
+              name="icon_search_black"
+              width="0.24"
+              height="0.24"
+              onClick={() => setSearchBarIsShow(!searchBarIsShow)}
+            />
+          </Fragment>
+        )}
       </styled.Head>
 
       {/* Body */}
