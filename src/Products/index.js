@@ -3,7 +3,7 @@ import { useDispatch, useMappedState } from 'redux-react-hook';
 import get from 'lodash.get';
 import find from 'lodash.find';
 import Icon from '../common/components/Icon';
-import axios from 'axios';
+import request from '../common/api/request';
 import * as actionTypes from '../common/store/actionTypes';
 
 import * as styled from './index.styled';
@@ -33,11 +33,9 @@ function Products() {
      * 获取数据
      */
     const fetchData = async () => {
-      const result = await axios.get(
-        'https://5667bbd1-ee00-4797-92af-440a47f87dcb.mock.pstmn.io/products'
-      );
-
-      setProductList(result.data.result);
+      try {
+        setProductList((await request({ url: '/products' })) || []);
+      } catch (e) {}
     };
 
     fetchData();
