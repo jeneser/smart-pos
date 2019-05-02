@@ -4,8 +4,9 @@ import get from 'lodash.get';
 import find from 'lodash.find';
 import Icon from '../common/components/Icon';
 import request from '../common/api/request';
-import * as actionTypes from '../common/store/actionTypes';
+import { toast, ToastContainer } from '../common/components/Toastify';
 
+import * as actionTypes from '../common/store/actionTypes';
 import * as styled from './index.styled';
 
 /**
@@ -74,12 +75,15 @@ function Products() {
         setProductList(
           (await request({ url: `/products/${queryItemId}` })) || []
         );
-      } catch (e) {}
+      } catch (e) {
+        toast.warn('商品不存在！');
+      }
     };
 
     fetchData();
 
     setSearchBarIsShow(false);
+    setQueryItemId('');
   }, [queryItemId]);
 
   return (
@@ -143,6 +147,7 @@ function Products() {
           );
         })}
       </styled.Body>
+      <ToastContainer />
     </styled.Products>
   );
 }
