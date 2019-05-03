@@ -1,8 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import Icon from '../common/components/Icon';
 import request from '../common/api/request';
 import moment from 'moment';
 import get from 'lodash.get';
+import { toast, ToastContainer } from '../common/components/Toastify';
 
 import * as styled from './index.styled';
 
@@ -13,6 +14,10 @@ function Orders() {
   const [ordersList, setOrdersList] = useState([]);
   const [orderId, setOrderId] = useState('');
   const [orderDetail, setOrderDetail] = useState({});
+  // 搜索框
+  const [searchBarIsShow, setSearchBarIsShow] = useState(false);
+  // 查询 id
+  const [queryItemId, setQueryItemId] = useState('');
 
   useEffect(() => {
     /**
@@ -48,6 +53,28 @@ function Orders() {
 
     fetchData();
   }, [orderId]);
+
+  /**
+   * 查询单个商品
+   */
+  const querySingleOrder = useCallback(() => {
+    const fetchData = async () => {
+      if (!queryItemId) return;
+
+      try {
+        const url = `/orders/${queryItemId}`;
+
+        setOrderDetail((await request({ url }))[0] || {});
+      } catch (e) {
+        toast.warn('账单不存在！');
+      }
+    };
+
+    fetchData();
+
+    setSearchBarIsShow(false);
+    setQueryItemId('');
+  }, [queryItemId]);
 
   const collectedOrders =
     ordersList.reduce((acc, cur) => {
@@ -137,9 +164,30 @@ function Orders() {
       <styled.Aside>
         {/* head */}
         <styled.Head>
-          <Icon name="icon_search_black" width="0.22" height="0.22" />
-          <styled.Title>账单</styled.Title>
-          <Icon name="icon_more_black" width="0.22" height="0.22" />
+          {searchBarIsShow ? (
+            <styled.searchBar>
+              <styled.searchInput
+                value={queryItemId}
+                autoFocus
+                placeholder="输入账单id"
+                onChange={(e) => setQueryItemId(e.target.value)}
+              />
+              <styled.searchButton onClick={querySingleOrder}>
+                查询
+              </styled.searchButton>
+            </styled.searchBar>
+          ) : (
+            <Fragment>
+              <Icon
+                name="icon_search_black"
+                width="0.22"
+                height="0.22"
+                onClick={() => setSearchBarIsShow(!searchBarIsShow)}
+              />
+              <styled.Title>账单</styled.Title>
+              <Icon name="icon_more_black" width="0.22" height="0.22" />
+            </Fragment>
+          )}
         </styled.Head>
         <styled.AsideBody>
           <styled.List>
@@ -182,6 +230,7 @@ function Orders() {
           </styled.List>
         </styled.AsideBody>
       </styled.Aside>
+      <ToastContainer />
     </styled.Orders>
   );
 }

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from '../common/styles/theme';
+import iconSearchGray from '../common/images/icon_search_gray.png';
 
 const Orders = styled.div`
   display: flex;
@@ -271,6 +272,50 @@ const Button = styled.div`
   }
 `;
 
+const searchBar = styled.div`
+  display: flex;
+  align-items: center;
+  height: 0.3rem;
+  flex: 1;
+`;
+
+const searchInput = styled.input`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 0.1rem 0.35rem;
+  border: 0.01rem solid ${theme.p5};
+  font-size: 0.14rem;
+  color: ${theme.p4};
+  outline: none;
+  border-radius: 0.04rem;
+  background-image: url(${iconSearchGray});
+  background-repeat: no-repeat;
+  background-size: 0.18rem 0.18rem;
+  background-position: 0.1rem center;
+
+  ::placeholder {
+    color: ${theme.p9};
+  }
+`;
+
+const searchButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0.8rem;
+  height: 0.3rem;
+  margin-left: 0.2rem;
+  font-size: 0.14rem;
+  color: #fff;
+  background-color: ${theme.p2};
+  border-radius: 0.04rem;
+
+  :active {
+    opacity: 0.85;
+  }
+`;
+
 export {
   Orders,
   Aside,
@@ -302,5 +347,8 @@ export {
   SettleList,
   SettleItem,
   TextLabel,
-  Button
+  Button,
+  searchBar,
+  searchInput,
+  searchButton
 };
