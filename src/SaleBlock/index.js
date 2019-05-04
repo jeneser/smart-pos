@@ -1,10 +1,18 @@
-import React, { Fragment, useState, useCallback } from 'react';
+import React, {
+  Fragment,
+  useState,
+  useCallback,
+  useEffect,
+  useRef
+} from 'react';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import Modal from 'react-modal';
 import get from 'lodash.get';
 import find from 'lodash.find';
 import uuidv1 from 'uuid/v1';
 import moment from 'moment';
+import request from '../common/api/request';
+import { toast } from '../common/components/Toastify';
 import Icon from '../common/components/Icon';
 
 import * as actionTypes from '../common/store/actionTypes';
@@ -15,13 +23,17 @@ Modal.setAppElement('#root');
 
 /**
  * 顾客账单
- * @param  {{leftButton: JSX.Element, readonly: Boolean}} {}
+ * @param  {{leftButton: JSX.Element, readonly: Boolean, inputMethod: String}} {}
  */
-function SaleBlock({ leftButton, readonly }) {
+function SaleBlock({ leftButton, readonly, inputMethod }) {
   // 模态框
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // 删除按钮
   const [deleteBtnIsShow, setDeleteBtnIsShow] = useState({});
+  // 条形码
+  const [barcode, setBarcode] = useState('');
+  // 条形码输入框
+  const barInputEl = useRef(null);
 
   // map state
   const {
@@ -54,6 +66,37 @@ function SaleBlock({ leftButton, readonly }) {
       };
     }, [])
   );
+
+  useEffect(() => {
+    const handleBarcodeInputBlur = () => {
+      barInputEl.current.focus();
+
+      setBarcode('');
+    };
+
+    if (inputMethod === 'barcode') {
+      barInputEl.current.focus();
+      barInputEl.current.addEventListener(
+        'blur',
+        handleBarcodeInputBlur,
+        false
+      );
+    } else {
+      barInputEl.current.removeEventListener(
+        'blur',
+        handleBarcodeInputBlur,
+        false
+      );
+    }
+
+    return () => {
+      barInputEl.current.removeEventListener(
+        'blur',
+        handleBarcodeInputBlur,
+        false
+      );
+    };
+  }, [inputMethod, barInputEl]);
 
   // actions
   const dispatch = useDispatch();
@@ -129,6 +172,42 @@ function SaleBlock({ leftButton, readonly }) {
       payload: !giftsIsShow
     });
   });
+
+  /**
+   * 添加商品
+   * @param  {Object} productItem
+   */
+  const handleAddProductItem = (productItem) => {
+    if (!currentCustomerId) return;
+
+    dispatch({
+      type: actionTypes.ADD_PRODUCT_ITEM,
+      payload: {
+        id: currentCustomerId,
+        item: productItem
+      }
+    });
+
+    setBarcode('');
+  };
+
+  /**
+   * 扫描条形码输入
+   */
+  const handleBarcodeChange = async (e) => {
+    e.stopPropagation();
+    const keyCode = e.keyCode;
+
+    if (keyCode !== 13 || !barcode || barcode.length < 10) return;
+
+    try {
+      const fetchData = await request({ url: `/products/${barcode.trim()}` });
+
+      await handleAddProductItem(fetchData[0]);
+    } catch (e) {
+      toast.warn('未查询到该商品！');
+    }
+  };
 
   // 自定义税率，应从服务器获取，这里固定为 0
   const taxRate = 0;
@@ -318,6 +397,15 @@ function SaleBlock({ leftButton, readonly }) {
           })}
         </styled.CustomerList>
       </Modal>
+
+      <styled.BarcodeInput
+        ref={barInputEl}
+        value={barcode}
+        type="text"
+        autoFocus
+        onChange={(e) => setBarcode(e.target.value)}
+        onKeyUp={handleBarcodeChange}
+      />
     </Fragment>
   );
 }

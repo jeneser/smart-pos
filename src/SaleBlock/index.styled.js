@@ -322,6 +322,18 @@ const Empty = styled.div`
   color: ${theme.p5};
 `;
 
+const BarcodeInput = styled.input`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0.1rem;
+  height: 0.01rem;
+  opacity: 0;
+  border: none;
+  background: none;
+  outline: none;
+`;
+
 export {
   SaleBlock,
   Head,
@@ -354,5 +366,6 @@ export {
   Text,
   CustomerInfo,
   Button,
-  Empty
+  Empty,
+  BarcodeInput
 };

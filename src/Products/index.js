@@ -11,8 +11,9 @@ import * as styled from './index.styled';
 
 /**
  * 商品池
+ * @param  {{changeSaleInputMethod: String}} {changeSaleInputMethod}
  */
-function Products() {
+function Products({ changeSaleInputMethod }) {
   // 商品列表
   const [productList, setProductList] = useState([]);
   // 搜索框
@@ -90,6 +91,7 @@ function Products() {
 
     setSearchBarIsShow(false);
     setQueryItemId('');
+    changeSaleInputMethod('barcode');
   }, [queryItemId, giftsIsShow]);
 
   return (
@@ -115,7 +117,10 @@ function Products() {
               name="icon_search_black"
               width="0.24"
               height="0.24"
-              onClick={() => setSearchBarIsShow(!searchBarIsShow)}
+              onClick={() => {
+                setSearchBarIsShow(!searchBarIsShow);
+                changeSaleInputMethod('manual');
+              }}
             />
           </Fragment>
         )}
