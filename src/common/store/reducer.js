@@ -120,11 +120,42 @@ export const giftsReducer = (state = {}, action) =>
     }
   });
 
+/**
+ * user reducer
+ * @param {Array} state
+ * @param {Object} action
+ */
+export const userReducer = (state = {}, action) =>
+  produce(state, (draft) => {
+    switch (action.type) {
+      /**
+       * 用户登陆
+       */
+      case actionTypes.USER_LOGIN: {
+        draft.username = action.payload.username;
+        draft.admin = action.payload.admin;
+        break;
+      }
+
+      /**
+       * 用户退出
+       */
+      case actionTypes.USER_LOGOUT: {
+        draft.username = '';
+        draft.admin = '';
+        break;
+      }
+
+      default:
+    }
+  });
+
 // root reducer
 const rootReducer = combineReducers({
   customer: customerReducer,
   cart: cartReducer,
-  gift: giftsReducer
+  gift: giftsReducer,
+  user: userReducer
 });
 
 export default rootReducer;

@@ -1,10 +1,14 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useCallback, useEffect } from 'react';
 import Modal from 'react-modal';
-
+import { useDispatch, useMappedState } from 'redux-react-hook';
 import Login from '../Login';
 import Icon from '../common/components/Icon';
+import request, { baseURL } from '../common/api/request';
+import { toast } from '../common/components/Toastify';
+import ls from 'local-storage';
 import theme from '../common/styles/theme';
 
+import * as actionTypes from '../common/store/actionTypes';
 import * as constants from '../common/constants';
 import * as styled from './index.styled';
 
@@ -20,6 +24,62 @@ const activeStyle = {
 function Sidebar() {
   const [sidebarIsShow, setSidebarIsShow] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  // map state
+  const { user } = useMappedState(
+    useCallback((state) => {
+      const user = state.user;
+
+      return { user };
+    }, [])
+  );
+
+  // actions
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const username = ls.get('username');
+    const admin = ls.get('admin');
+
+    if (!username) return;
+
+    dispatch({
+      type: actionTypes.USER_LOGIN,
+      payload: {
+        username,
+        admin
+      }
+    });
+  }, []);
+
+  const handleLogoutAction = useCallback(() => {
+    /**
+     * 获取数据
+     */
+    const fetchData = async () => {
+      console.log(user);
+      if (!user.username) return;
+
+      try {
+        const url = `${baseURL}/auth/logout`;
+
+        await request({ url });
+
+        dispatch({
+          type: actionTypes.USER_LOGOUT
+        });
+
+        ls.set('username', '');
+        ls.set('admin', '');
+
+        toast.success('注销成功!');
+      } catch (e) {
+        toast.warn('注销异常，请重试！');
+      }
+    };
+
+    fetchData();
+  }, [user]);
 
   const handleShowSidebar = (e) => {
     if (e.target && e.target.id === 'jSidebarExpand') return;
@@ -62,15 +122,21 @@ function Sidebar() {
         {/* SidebarExpand */}
         <styled.SidebarExpand id="jSidebarExpand">
           {/* UserBlock */}
-          <styled.UserBlock onClick={() => setModalIsOpen(true)}>
+          <styled.UserBlock
+            onClick={() => !user.username && setModalIsOpen(true)}
+          >
             <styled.Avatar
               src={
                 'https://avatars2.githubusercontent.com/u/15034042?s=460&v=4'
               }
             />
             <styled.UserInfo>
-              <styled.UserNick>Jeneser wg</styled.UserNick>
-              <styled.UserDesc>导购人员</styled.UserDesc>
+              <styled.UserNick>
+                {user.username ? user.username : '请登陆'}
+              </styled.UserNick>
+              <styled.UserDesc>
+                {user.admin ? '管理员' : user.username && '导购'}
+              </styled.UserDesc>
             </styled.UserInfo>
             <Icon name="icon_down_gray" width="0.18" height="0.18" />
           </styled.UserBlock>
@@ -94,7 +160,9 @@ function Sidebar() {
 
           <styled.NavItem bottom>
             <Icon name="icon_user_gray" width="0.22" height="0.22" />
-            <styled.NavText>注销登陆</styled.NavText>
+            <styled.NavText onClick={handleLogoutAction}>
+              注销登陆
+            </styled.NavText>
           </styled.NavItem>
         </styled.SidebarExpand>
       </styled.MaskContainer>
