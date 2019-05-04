@@ -1,30 +1,38 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { Fragment, useState, useEffect, useCallback } from 'react';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import get from 'lodash.get';
 import find from 'lodash.find';
 import Icon from '../common/components/Icon';
-import axios from 'axios';
-import * as actionTypes from '../common/store/actionTypes';
+import request from '../common/api/request';
+import { toast, ToastContainer } from '../common/components/Toastify';
 
+import * as actionTypes from '../common/store/actionTypes';
 import * as styled from './index.styled';
 
 /**
  * 商品池
+ * @param  {{changeSaleInputMethod: String}} {changeSaleInputMethod}
  */
-function Products() {
+function Products({ changeSaleInputMethod }) {
   // 商品列表
   const [productList, setProductList] = useState([]);
+  // 搜索框
+  const [searchBarIsShow, setSearchBarIsShow] = useState(false);
+  // 查询 id
+  const [queryItemId, setQueryItemId] = useState('');
 
   // map state
-  const { currentCustomerId } = useMappedState(
+  const { currentCustomerId, giftsIsShow } = useMappedState(
     useCallback((state) => {
       const customerList = get(state, 'customer', []);
       // 当前顾客
       const currentCustomer = find(customerList, ['isCurrent', true]) || {};
       // 当前顾客 ID
       const currentCustomerId = get(currentCustomer, 'id', '');
+      // 展示礼品卡
+      const giftsIsShow = get(state, 'gift.isShow', false);
 
-      return { currentCustomerId };
+      return { currentCustomerId, giftsIsShow };
     }, [])
   );
 
@@ -33,15 +41,15 @@ function Products() {
      * 获取数据
      */
     const fetchData = async () => {
-      const result = await axios.get(
-        'https://5667bbd1-ee00-4797-92af-440a47f87dcb.mock.pstmn.io/products'
-      );
+      try {
+        const url = giftsIsShow ? `/gifts` : `/products`;
 
-      setProductList(result.data.result);
+        setProductList((await request({ url })) || []);
+      } catch (e) {}
     };
 
     fetchData();
-  }, []);
+  }, [giftsIsShow]);
 
   // actions
   const dispatch = useDispatch();
@@ -63,12 +71,59 @@ function Products() {
       });
   };
 
+  /**
+   * 查询单个商品
+   */
+  const querySingleProduct = useCallback(() => {
+    const fetchData = async () => {
+      try {
+        const url = giftsIsShow
+          ? `/gifts/${queryItemId}`
+          : `/products/${queryItemId}`;
+
+        setProductList((await request({ url })) || []);
+      } catch (e) {
+        toast.warn('商品不存在！');
+      }
+    };
+
+    fetchData();
+
+    setSearchBarIsShow(false);
+    setQueryItemId('');
+    changeSaleInputMethod('barcode');
+  }, [queryItemId, giftsIsShow]);
+
   return (
     <styled.Products>
       {/* head */}
       <styled.Head>
-        <styled.Title>商品池</styled.Title>
-        <Icon name="icon_search_black" width="0.24" height="0.24" />
+        {searchBarIsShow ? (
+          <styled.searchBar>
+            <styled.searchInput
+              value={queryItemId}
+              autoFocus
+              placeholder="输入商品id"
+              onChange={(e) => setQueryItemId(e.target.value)}
+            />
+            <styled.searchButton onClick={querySingleProduct}>
+              查询
+            </styled.searchButton>
+          </styled.searchBar>
+        ) : (
+          <Fragment>
+            <styled.Title>{giftsIsShow ? '礼品卡' : '商品池'}</styled.Title>
+            <Icon
+              name="icon_search_black"
+              width="0.24"
+              height="0.24"
+              onClick={() => {
+                setSearchBarIsShow(!searchBarIsShow);
+                changeSaleInputMethod('manual');
+              }}
+            />
+          </Fragment>
+        )}
       </styled.Head>
 
       {/* Body */}
@@ -83,7 +138,7 @@ function Products() {
                 <styled.ItemDesc>
                   <styled.ItemTitle>{item.shortTitle}</styled.ItemTitle>
                   <styled.ItemPrice>
-                    ￥{item.itemPrice}
+                    {item.itemPrice ? `￥${item.itemPrice}` : ''}
                     <styled.ItemOriginPrice>
                       {item.originalPrice}
                     </styled.ItemOriginPrice>
@@ -104,6 +159,7 @@ function Products() {
           );
         })}
       </styled.Body>
+      <ToastContainer />
     </styled.Products>
   );
 }

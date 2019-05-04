@@ -41,7 +41,7 @@ export const customerReducer = (state = [], action) =>
         break;
       }
 
-      default:;
+      default:
     }
   });
 
@@ -96,14 +96,66 @@ export const cartReducer = (state = {}, action) =>
         break;
       }
 
-      default:;
+      default:
+    }
+  });
+
+/**
+ * gifts reducer
+ * @param {Array} state
+ * @param {Object} action
+ */
+export const giftsReducer = (state = {}, action) =>
+  produce(state, (draft) => {
+    switch (action.type) {
+      /**
+       * 添加优惠操作
+       */
+      case actionTypes.HANDLE_GIFTS_SHOW: {
+        draft.isShow = action.payload;
+        break;
+      }
+
+      default:
+    }
+  });
+
+/**
+ * user reducer
+ * @param {Array} state
+ * @param {Object} action
+ */
+export const userReducer = (state = {}, action) =>
+  produce(state, (draft) => {
+    switch (action.type) {
+      /**
+       * 用户登陆
+       */
+      case actionTypes.USER_LOGIN: {
+        draft.username = action.payload.username;
+        draft.admin = action.payload.admin;
+        break;
+      }
+
+      /**
+       * 用户退出
+       */
+      case actionTypes.USER_LOGOUT: {
+        draft.username = '';
+        draft.admin = '';
+        break;
+      }
+
+      default:
     }
   });
 
 // root reducer
 const rootReducer = combineReducers({
   customer: customerReducer,
-  cart: cartReducer
+  cart: cartReducer,
+  gift: giftsReducer,
+  user: userReducer
 });
 
 export default rootReducer;
