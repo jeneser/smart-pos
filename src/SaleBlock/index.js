@@ -72,9 +72,16 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
       barInputEl.current.focus();
 
       setBarcode('');
+      console.log('bu');
     };
 
-    if (inputMethod === 'barcode') {
+    if (readonly) {
+      barInputEl.current.removeEventListener(
+        'blur',
+        handleBarcodeInputBlur,
+        false
+      );
+    } else if (inputMethod === 'barcode') {
       barInputEl.current.focus();
       barInputEl.current.addEventListener(
         'blur',
@@ -96,7 +103,7 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
         false
       );
     };
-  }, [inputMethod, barInputEl]);
+  }, [inputMethod, barInputEl, readonly]);
 
   // actions
   const dispatch = useDispatch();
@@ -198,7 +205,7 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
     e.stopPropagation();
     const keyCode = e.keyCode;
 
-    if (keyCode !== 13 || !barcode || barcode.length < 10) return;
+    if (keyCode !== 13 || !barcode || barcode.length < 10 || readonly) return;
 
     try {
       const fetchData = await request({ url: `/products/${barcode.trim()}` });

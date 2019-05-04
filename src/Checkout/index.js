@@ -71,7 +71,9 @@ function Checkout({ history }) {
     };
 
     const fetchOrderUrl = async () => {
-      const result = await 'https://www.pos.jeneser.wang/orders/10000009678966567';
+      // TODO: 获取真实订单id逻辑
+      const orderId = '10100454001';
+      const result = await `http://www.pos.jeneser.wang/miniapp/code/orders/${orderId}`;
 
       setOrderUrl(result);
 
