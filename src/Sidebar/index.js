@@ -57,7 +57,6 @@ function Sidebar() {
      * 获取数据
      */
     const fetchData = async () => {
-      console.log(user);
       if (!user.username) return;
 
       try {

@@ -72,7 +72,6 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
       barInputEl.current.focus();
 
       setBarcode('');
-      console.log('bu');
     };
 
     if (readonly) {

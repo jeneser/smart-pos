@@ -4,7 +4,7 @@ import get from 'lodash.get';
 import find from 'lodash.find';
 import Icon from '../common/components/Icon';
 import request from '../common/api/request';
-import { toast, ToastContainer } from '../common/components/Toastify';
+import { toast, Toastify } from '../common/components/Toastify';
 
 import * as actionTypes from '../common/store/actionTypes';
 import * as styled from './index.styled';
@@ -159,7 +159,7 @@ function Products({ changeSaleInputMethod }) {
           );
         })}
       </styled.Body>
-      <ToastContainer />
+      <Toastify />
     </styled.Products>
   );
 }

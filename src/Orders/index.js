@@ -3,7 +3,7 @@ import Icon from '../common/components/Icon';
 import request from '../common/api/request';
 import moment from 'moment';
 import get from 'lodash.get';
-import { toast, ToastContainer } from '../common/components/Toastify';
+import { toast, Toastify } from '../common/components/Toastify';
 
 import * as styled from './index.styled';
 
@@ -230,7 +230,7 @@ function Orders() {
           </styled.List>
         </styled.AsideBody>
       </styled.Aside>
-      <ToastContainer />
+      <Toastify />
     </styled.Orders>
   );
 }
