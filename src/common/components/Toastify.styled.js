@@ -1,17 +1,18 @@
-import styled from 'styled-components';
-import { ToastContainer } from 'react-toastify';
+import { createGlobalStyle } from 'styled-components';
 
-const Toastify = styled(ToastContainer)`
-  font-size: 0.17rem;
+const GlobalStyle = createGlobalStyle`
+  .Toastify__toast-container {
+    font-size: 0.17rem;
 
-  .Toastify__close-button {
-    display: none;
-  }
+    .Toastify__close-button {
+      display: none;
+    }
 
-  .Toastify__toast {
-    padding-left: 0.15rem;
-    padding-right: 0.15rem;
+    .Toastify__toast {
+      padding-left: 0.15rem;
+      padding-right: 0.15rem;
+    }
   }
 `;
 
-export { Toastify };
+export { GlobalStyle };
