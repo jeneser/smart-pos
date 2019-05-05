@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 
 import SaleBlock from '../SaleBlock';
 import Products from '../Products';
@@ -7,17 +7,13 @@ import Products from '../Products';
  * 购物车
  */
 function Cart() {
-  const [saleInputMethod, setSaleInputMethod] = useState('barcode');
-
   return (
     <Fragment>
       {/* Products */}
-      <Products
-        changeSaleInputMethod={(method) => setSaleInputMethod(method)}
-      />
+      <Products />
 
       {/* SaleBlock */}
-      <SaleBlock inputMethod={saleInputMethod} />
+      <SaleBlock />
     </Fragment>
   );
 }

@@ -150,12 +150,33 @@ export const userReducer = (state = {}, action) =>
     }
   });
 
+  /**
+ * scanner reducer
+ * @param {Array} state
+ * @param {Object} action
+ */
+export const scannerReducer = (state = {}, action) =>
+produce(state, (draft) => {
+  switch (action.type) {
+    /**
+     * 修改商品输入方式
+     */
+    case actionTypes.CHANGE_INPUT_METHOD: {
+      draft.inputMethod = action.payload;
+      break;
+    }
+
+    default:
+  }
+});
+
 // root reducer
 const rootReducer = combineReducers({
   customer: customerReducer,
   cart: cartReducer,
   gift: giftsReducer,
-  user: userReducer
+  user: userReducer,
+  scanner: scannerReducer
 });
 
 export default rootReducer;

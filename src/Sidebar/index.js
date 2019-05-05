@@ -86,6 +86,16 @@ function Sidebar() {
     setSidebarIsShow(!sidebarIsShow);
   };
 
+  /**
+   * 变更输入方式
+   */
+  const changeSaleInputMethod = (method) => {
+    dispatch({
+      type: actionTypes.CHANGE_INPUT_METHOD,
+      payload: method
+    });
+  };
+
   return (
     <Fragment>
       {/* Sidebar */}
@@ -112,7 +122,7 @@ function Sidebar() {
           );
         })}
 
-        <styled.MenuItem bottom>
+        <styled.MenuItem bottom onClick={handleLogoutAction}>
           <Icon name="icon_user_gray" width="0.24" height="0.24" />
         </styled.MenuItem>
       </styled.Sidebar>
@@ -122,7 +132,10 @@ function Sidebar() {
         <styled.SidebarExpand id="jSidebarExpand">
           {/* UserBlock */}
           <styled.UserBlock
-            onClick={() => !user.username && setModalIsOpen(true)}
+            onClick={() => {
+              !user.username && setModalIsOpen(true);
+              changeSaleInputMethod('manual');
+            }}
           >
             <styled.Avatar
               src={
@@ -171,11 +184,13 @@ function Sidebar() {
         style={{ ...styled.modalStyle }}
         onRequestClose={() => {
           setModalIsOpen(false);
+          changeSaleInputMethod('barcode');
         }}
       >
         <Login
           handleClose={() => {
             setModalIsOpen(false);
+            changeSaleInputMethod('barcode');
           }}
         />
       </Modal>

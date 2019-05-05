@@ -23,9 +23,9 @@ Modal.setAppElement('#root');
 
 /**
  * 顾客账单
- * @param  {{leftButton: JSX.Element, readonly: Boolean, inputMethod: String}} {}
+ * @param  {{leftButton: JSX.Element, readonly: Boolean}} {}
  */
-function SaleBlock({ leftButton, readonly, inputMethod }) {
+function SaleBlock({ leftButton, readonly }) {
   // 模态框
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // 删除按钮
@@ -41,7 +41,8 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
     currentCustomer,
     currentCustomerId,
     cartItems,
-    giftsIsShow
+    giftsIsShow,
+    inputMethod
   } = useMappedState(
     useCallback((state) => {
       const customerList = get(state, 'customer', []);
@@ -56,13 +57,16 @@ function SaleBlock({ leftButton, readonly, inputMethod }) {
       const cartItems = get(currentCart, 'items', []);
       // 展示礼品卡
       const giftsIsShow = get(state, 'gift.isShow', false);
+      // 输入方式
+      const inputMethod = get(state, 'scanner.inputMethod', 'barcode');
 
       return {
         customerList,
         currentCustomer,
         currentCustomerId,
         cartItems,
-        giftsIsShow
+        giftsIsShow,
+        inputMethod
       };
     }, [])
   );

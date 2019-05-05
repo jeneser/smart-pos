@@ -11,9 +11,8 @@ import * as styled from './index.styled';
 
 /**
  * 商品池
- * @param  {{changeSaleInputMethod: String}} {changeSaleInputMethod}
  */
-function Products({ changeSaleInputMethod }) {
+function Products() {
   // 商品列表
   const [productList, setProductList] = useState([]);
   // 搜索框
@@ -69,6 +68,16 @@ function Products({ changeSaleInputMethod }) {
           item: productItem
         }
       });
+  };
+
+  /**
+   * 变更输入方式
+   */
+  const changeSaleInputMethod = (method) => {
+    dispatch({
+      type: actionTypes.CHANGE_INPUT_METHOD,
+      payload: method
+    });
   };
 
   /**
