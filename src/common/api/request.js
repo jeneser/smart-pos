@@ -1,7 +1,7 @@
 import axios from 'axios';
 import get from 'lodash.get';
 
-const baseURL = 'http://192.168.0.101:8081';
+const baseURL = 'http://47.103.21.163:8081';
 const apiBaseURL = `${baseURL}/api/v1/`;
 
 const request = async (options) => {
